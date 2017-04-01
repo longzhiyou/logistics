@@ -13,8 +13,8 @@ var gutil = require('gulp-util');
  */
 exports.paths = {
   src: 'src',
-  dist: '../',
-  devDist: 'dev-release',
+  dist: 'release',
+  devDist: 'D:/unsetup/nginx-1.10.2/html/dev-release',
   tmp: '.tmp',
   e2e: 'e2e'
 };
