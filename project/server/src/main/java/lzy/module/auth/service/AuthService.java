@@ -24,7 +24,7 @@ public class AuthService {
 
   public UserInfo addUser(UserEntity user){
 
-      UserEntity entity = userRepository.findByUsername(user.getUsername());
+      UserEntity entity = userRepository.findFirstByUsername(user.getUsername());
       if (null!=entity) {
           throw new UnauthorizedException("用户名已存在");
 

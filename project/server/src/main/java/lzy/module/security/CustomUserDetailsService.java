@@ -31,15 +31,15 @@ public class CustomUserDetailsService implements UserDetailsService {
 //         */
 //
 //
-        UserEntity userEntity = userRepository.findByUsername(username);
+        UserEntity userEntity = userRepository.findFirstByUsername(username);
         if (null==userEntity) {
             throw new UsernameNotFoundException(String.format("没有发现用户 '%s'.", username));
         }
 
         UserInfo user = new UserInfo();
         user.setUsername(username);
-        user.setPassword(user.getPassword());
-        user.setEnabled(true);
+        user.setPassword(userEntity.getPassword());
+        user.setEnabled(userEntity.getEnabled());
 //        user.setEnabled(user.isEnabled());
 
 //        user.setMemberId(2);
