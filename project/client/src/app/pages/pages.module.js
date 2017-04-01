@@ -16,18 +16,12 @@
     'BlurAdmin.pages.charts',
     'BlurAdmin.pages.maps',
     'BlurAdmin.pages.profile',
-    'BlurAdmin.pages.myNewPage',
   ])
       .config(routeConfig);
 
   /** @ngInject */
-  function routeConfig($urlRouterProvider, baSidebarServiceProvider) {
-    //$urlRouterProvider.otherwise('/dashboard');
-
-    $urlRouterProvider.otherwise( function($injector) {
-      var $state = $injector.get("$state");
-      $state.go("dashboard");
-    });
+  function routeConfig($urlRouterProvider, baSidebarServiceProvider ) {
+    $urlRouterProvider.otherwise('/dashboard');
 
     baSidebarServiceProvider.addStaticItem({
       title: 'Pages',
