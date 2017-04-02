@@ -29,6 +29,10 @@ public class AuthService {
     @Autowired
     private UserRepository userRepository;
 
+//    User register(User userToAdd);
+//    String login(String username, String password);
+//    String refresh(String oldToken);
+
 
 
     //清除掉全部缓存

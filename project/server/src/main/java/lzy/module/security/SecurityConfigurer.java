@@ -52,7 +52,22 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and();
 
         httpSecurity.authorizeRequests()
-                .antMatchers("/static/**").permitAll()
+                // 允许对于网站静态资源的无授权访问
+                .antMatchers(
+                        HttpMethod.GET,
+                        "/",
+                        "/*.html",
+                        "/favicon.ico",
+                        "/**/*.html",
+                        "/**/*.css",
+                        "/**/*.js",
+                        "/assets/**",
+                        "/fonts/**",
+                        "/maps/**",
+                        "/scripts/**",
+                        "/styles/**"
+
+                ).permitAll()
                 .antMatchers(HttpMethod.POST, "/api/auth/login").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/auth/register").permitAll()
 //                .antMatchers(HttpMethod.POST, "/**").permitAll() //debug 时, 不用对 Authorization 作验证
@@ -62,11 +77,12 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 
         ;
 
+        // disable page caching
+        httpSecurity.headers().cacheControl();
+
         // Custom JWT based security filter
         httpSecurity.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
 
-        // disable page caching
-        httpSecurity.headers().cacheControl();
 
     }
 
