@@ -1,9 +1,10 @@
 package lzy.module.security;
 
 
+import lzy.common.exception.UnauthorizedException;
 import lzy.module.auth.domain.UserEntity;
 import lzy.module.auth.domain.UserInfo;
-import lzy.module.auth.repository.UserRepository;
+import lzy.module.auth.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,35 +19,26 @@ import org.springframework.stereotype.Service;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
+//    @Autowired
+//    private UserRepository userRepository;
+
     @Autowired
-    private UserRepository userRepository;
+    private AuthService authService;
+
 
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-//        /**
-//         *  从数据库获取用户信息,以后要增加缓存机制
-//         * [2017-03-17 add by longzhiyou]
-//         */
-//
-//
-        UserEntity userEntity = userRepository.findFirstByUsername(username);
+        UserEntity userEntity = authService.findUser(username);
         if (null==userEntity) {
-            throw new UsernameNotFoundException(String.format("没有发现用户 '%s'.", username));
+            throw new UnauthorizedException(String.format("没有发现用户 '%s'.", username));
         }
 
         UserInfo user = new UserInfo();
         user.setUsername(username);
         user.setPassword(userEntity.getPassword());
         user.setEnabled(userEntity.getEnabled());
-//        user.setEnabled(user.isEnabled());
-
-//        user.setMemberId(2);
-//        user.setPersonId(2);
-//        user.setUsername("longzhiyou");
-//        user.setPassword("8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92");
-
 
 //        Collection<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 //        authorities.add(new SimpleGrantedAuthority("bestskip"));

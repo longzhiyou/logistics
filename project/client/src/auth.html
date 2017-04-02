@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="login">
+<html lang="zh" ng-app="login">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -76,8 +76,8 @@
   /* @ngInject */
   function AppConfig($httpProvider,
                      RestangularProvider) {
-    var ip = "http://localhost:9082/";
-    RestangularProvider.setBaseUrl("api/");
+    var ip = "http://localhost:9002";
+    RestangularProvider.setBaseUrl(ip+"/api/");
 //    $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
   }
@@ -85,7 +85,7 @@
   angular.module('login')
           .controller('loginCtrl', loginCtrl);
   /** @ngInject */
-  function loginCtrl($scope,Restangular) {
+  function loginCtrl($scope,Restangular,$window) {
 
 
     $scope.credentials={username:"longzhiyou",password:"123456"};
@@ -97,6 +97,9 @@
       login.post($scope.credentials).then(function(account) {
 
         localStorage.setItem("token",account.token);
+        var landingUrl = "http://" + $window.location.host;
+        console.log(landingUrl);
+        $window.location.href = landingUrl;
 
       }, function() {
 
