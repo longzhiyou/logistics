@@ -68,8 +68,9 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                         "/styles/**"
 
                 ).permitAll()
-                .antMatchers(HttpMethod.POST, "/api/auth/login").permitAll()
-                .antMatchers(HttpMethod.POST, "/api/auth/register").permitAll()
+//                .antMatchers(HttpMethod.POST, "/api/auth/login").permitAll()
+//                .antMatchers(HttpMethod.POST, "/api/auth/register").permitAll()
+                .antMatchers("/api/auth/**").permitAll()
 //                .antMatchers(HttpMethod.POST, "/**").permitAll() //debug 时, 不用对 Authorization 作验证
 //                .antMatchers(HttpMethod.OPTIONS).permitAll()
                 .anyRequest().authenticated()

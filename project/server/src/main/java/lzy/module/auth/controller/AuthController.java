@@ -2,12 +2,12 @@ package lzy.module.auth.controller;
 
 
 import lzy.common.CommonDefine;
-import lzy.module.auth.domain.LoginUser;
-import lzy.module.auth.domain.UserEntity;
-import lzy.module.auth.domain.UserInfo;
+import lzy.module.auth.domain.*;
 import lzy.module.auth.repository.UserRepository;
 import lzy.module.auth.service.AuthService;
 import lzy.module.security.jwt.JwtTokenUtil;
+import lzy.utils.LicenseGenerator;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mobile.device.Device;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -15,10 +15,11 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 以后扩展相关功能
@@ -78,17 +79,25 @@ public class AuthController {
     }
 
     @RequestMapping(method= RequestMethod.POST,consumes = "application/json",value = "/register")
-    public UserInfo jsonRegister(@RequestBody UserEntity user) {
-
+    public UserInfo jsonRegister(@Valid @RequestBody RegisterUser user) {
 
         UserInfo userInfo = authService.addUser(user);
         final String token = jwtTokenUtil.generateTokenByUsername(user.getUsername());
         userInfo.setToken(token);
-
         return userInfo;
 
+    }
 
+    @RequestMapping(method= RequestMethod.GET,value = "/serial")
+    public SoftSerial serial() {
+
+        SoftSerial softSerial = new SoftSerial();
+        softSerial.setSerial(LicenseGenerator.getCPUSerial());
+
+        return softSerial;
 
     }
+
+
 
 }

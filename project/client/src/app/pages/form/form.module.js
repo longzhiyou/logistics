@@ -24,7 +24,7 @@
         .state('form.inputs', {
           url: '/inputs',
           templateUrl: 'app/pages/form/inputs/inputs.html',
-          title: 'Form Inputs',
+          title: '收货',
           sidebarMeta: {
             order: 0,
           },

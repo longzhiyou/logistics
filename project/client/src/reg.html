@@ -4,9 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blur Admin</title>
+  <title>注册</title>
 
-  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900&subset=latin,greek,greek-ext,vietnamese,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+
+  <!--<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900&subset=latin,greek,greek-ext,vietnamese,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>-->
 
   <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
@@ -23,38 +24,69 @@
   <!-- css files will be automatically insert here -->
   <!-- endinject -->
   <!-- endbuild -->
+
 </head>
-<body>
+<body ng-controller="registerCtrl">
 <main class="auth-main">
   <div class="auth-block">
-    <h1>Sign up to Blur Admin</h1>
-    <a href="auth.html" class="auth-link">Already have a Blur Admin account? Sign in!</a>
+    <h1>注册账户</h1>
+    <a href="auth.html" class="auth-link">已经有账户了? 请登录!</a>
 
-    <form class="form-horizontal">
-      <div class="form-group">
-        <label for="inputName3" class="col-sm-2 control-label">Name</label>
 
+    <form class="form-horizontal" ng-submit="register()" name="registerForm">
+      <div class="form-group"
+           ng-class="{'has-error':registerForm.username.$touched && registerForm.username.$invalid}">
+        <label for="inputUsername" class="col-sm-2 control-label">用户名</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="inputName3" placeholder="Full Name">
+          <input type="text" name="username" class="form-control" id="inputUsername"
+                 placeholder="请输入用户名"
+                 ng-model="credentials.username"
+                 required ng-minlength="6" ng-maxlength="20">
+
+          <span class="help-block" ng-messages="registerForm.username.$error"
+               ng-if="registerForm.username.$touched">
+            <p ng-message="minlength">用户名最小长度6</p>
+            <p ng-message="maxlength">用户名最大长度20</p>
+            <p ng-message="required">用户名必填</p>
+          </span>
+        </div>
+
+      </div>
+
+      <div class="form-group"
+           ng-class="{'has-error':registerForm.password.$touched && registerForm.password.$invalid}">
+        <label for="password" class="col-sm-2 control-label">密码</label>
+        <div class="col-sm-10">
+          <input type="password" name="password" class="form-control" id="password"
+                 placeholder="请输入密码"
+                 ng-model="credentials.password"
+                 required ng-minlength="6">
+
+          <span class="help-block" ng-messages="registerForm.password.$error"
+                ng-if="registerForm.password.$touched">
+            <p ng-message="minlength">密码最小长度6</p>
+            <p ng-message="required">密码必填</p>
+          </span>
+        </div>
+
+      </div>
+      <div class="form-group">
+        <label for="labelSerial" class="col-sm-2 control-label">序列号</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="labelSerial" ng-model="serial">
         </div>
       </div>
       <div class="form-group">
-        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+        <label for="inputLicense" class="col-sm-2 control-label">授权码</label>
 
         <div class="col-sm-10">
-          <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-
-        <div class="col-sm-10">
-          <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+          <input type="text" class="form-control" id="inputLicense" placeholder="请输入已购授权码" ng-model="credentials.license">
         </div>
       </div>
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" class="btn btn-default btn-auth">注册</button>
+          <button type="submit" class="btn btn-default btn-auth"
+                  ng-disabled="registerForm.$invalid">注册</button>
         </div>
       </div>
     </form>
@@ -74,6 +106,8 @@
   'use strict';
 
   angular.module('register', [
+    'ngMessages',
+    'toastr',
     'restangular'
   ]);
 
@@ -90,28 +124,42 @@
   angular.module('register')
           .controller('registerCtrl', registerCtrl);
   /** @ngInject */
-  function registerCtrl($scope,Restangular,$window) {
+  function registerCtrl($scope,Restangular,$window, toastr, toastrConfig) {
 
 
-    $scope.credentials={username:"longzhiyou",password:"123456"};
+    $scope.credentials={username:"",password:"",license:""};
     $scope.register=register;
+
 
     function register(){
 
       var register = Restangular.all('/auth/register');
       register.post($scope.credentials).then(function(account) {
-
-        localStorage.setItem("token",account.token);
-        var landingUrl = "http://" + $window.location.host;
-        console.log(landingUrl);
+        var landingUrl = "http://" + $window.location.host + "/auth.html";
         $window.location.href = landingUrl;
 
-      }, function() {
+      }, function(error) {
+
+        toastr.error(error.data.message);
 
       });
 
 
     }
+
+    function init() {
+
+      // First way of creating a Restangular object. Just saying the base URL
+      var baseAccounts = Restangular.one('/auth/serial');
+
+      // This will query /accounts and return a promise.
+      baseAccounts.get().then(function (softSerial) {
+        $scope.serial = softSerial.serial;
+      });
+
+    }
+
+    init();
 
 
   }

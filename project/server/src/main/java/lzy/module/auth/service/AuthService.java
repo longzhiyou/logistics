@@ -1,10 +1,13 @@
 package lzy.module.auth.service;
 
 import lzy.common.exception.UnauthorizedException;
+import lzy.module.auth.domain.RegisterUser;
 import lzy.module.auth.domain.UserEntity;
 import lzy.module.auth.domain.UserInfo;
 import lzy.module.auth.repository.UserRepository;
+import lzy.utils.LicenseGenerator;
 import lzy.utils.StringUtil;
+import org.apache.ibatis.scripting.xmltags.IfSqlNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -39,15 +42,20 @@ public class AuthService {
 //    @CacheEvict(value="andCache",allEntries=true,beforeInvocation=true)
     //清除掉指定key中的缓存
     @CacheEvict(value="andCache",key="#user.username + 'findUser'")
-    public UserInfo addUser(UserEntity user){
+    public UserInfo addUser(RegisterUser user){
 
-        log.info("清除指定缓存"+user.getUsername()+"findFirstByUsername");
+//        log.info("清除指定缓存"+user.getUsername()+"findFirstByUsername");
+
+        //验证序列号
+        if (!LicenseGenerator.matches(user.getLicense())){
+            throw new UnauthorizedException("序列号不正确");
+        }
 
         UserEntity entity = findUser(user.getUsername());
       if (null!=entity) {
           throw new UnauthorizedException("用户名已存在");
-
         }
+
 
       UserEntity userEntity = new UserEntity();
       userEntity.setEnabled(true);
