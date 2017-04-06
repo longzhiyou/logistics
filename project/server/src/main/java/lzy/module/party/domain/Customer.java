@@ -1,5 +1,5 @@
 // tag::sample[]
-package lzy.demo;
+package lzy.module.party.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

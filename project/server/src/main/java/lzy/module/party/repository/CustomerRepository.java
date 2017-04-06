@@ -1,5 +1,6 @@
-package lzy.demo;
+package lzy.module.party.repository;
 
+import lzy.module.party.domain.Customer;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
