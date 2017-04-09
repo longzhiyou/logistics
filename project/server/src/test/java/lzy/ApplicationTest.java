@@ -3,6 +3,7 @@ package lzy;
 
 import lzy.module.auth.domain.UserEntity;
 import lzy.module.auth.repository.UserRepository;
+import lzy.module.party.domain.Party;
 import lzy.module.party.repository.PartyRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -129,9 +130,14 @@ public class ApplicationTest {
     @Test
     @Transactional
     @Rollback(false)
-    public void partyDelete() throws Exception {
+    public void testParty() throws Exception {
 
-        partyRepository.delete(3);
+//        Party party = new Party();
+//        party.setPartyId(10);
+
+        Party one = partyRepository.findOne(2);
+        assertNotNull(one);
+        partyRepository.delete(2);
 
 
     }

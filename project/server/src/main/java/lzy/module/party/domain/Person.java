@@ -18,23 +18,12 @@ import java.sql.Date;
  */
 
 
-@NoArgsConstructor
 @Data
 @Entity
 public class Person  {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer partyId;
-
-    @NotEmpty(message="姓名不能为空")
     private String name;
-    @Length(max=1,message="密码长度不能小于6位")
-    private String gender;
 
-    private Date birthDate;
-    private String height;
-    private String weight;
-    private String maritalStatus;
-    private String comments;
 
 }

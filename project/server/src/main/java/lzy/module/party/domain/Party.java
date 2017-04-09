@@ -17,20 +17,11 @@ import java.io.Serializable;
  */
 
 
-@Entity
 @Data
-@NoArgsConstructor
-public class Party implements Serializable{
+@Entity
+public class Party {
     @Id
-    private int partyId;
-    private String name;
-
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "partyPerson")
-    private Person person;
-
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "partyOrganization")
-    private Organization organization;
-
+    private Integer partyId;
 
 
 }

@@ -1,23 +1,22 @@
-
 package lzy.module.party.domain;
 
 import lombok.Data;
 
 import javax.persistence.*;
 
+/**
+ *
+ * Created by bukeyan on 2017/4/9.
+ */
 @Data
 @Entity
-@IdClass(CustomerPK.class)
-public class Customer {
-
+@IdClass(PartyRolePK.class)
+public class PartyRole {
     @Id
     private Integer partyId;
     @Id
     private Integer roleTypeId;
-    private String firstName;
-    private String lastName;
-
+    private Integer partyRoleId;
 
 
 }
-
