@@ -3,15 +3,17 @@ package lzy.common;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
 import java.io.Serializable;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * User: longzhiyou
@@ -37,33 +39,39 @@ public abstract class BaseEntity  implements Serializable {
     private Integer tenantId;
 
     @JsonIgnore
-    private Timestamp createdAt;
+    @CreatedDate
+    private Date createdAt ;
 
     @JsonIgnore
-    private Timestamp updatedAt;
+    @CreatedBy
+    private String createdBy;
+
 
     @JsonIgnore
-    @Version
-    private Integer lockVersion;
+    @LastModifiedDate
+    private Date updatedAt;
 
     @JsonIgnore
     @LastModifiedBy
     private String updatedBy;
 
     @JsonIgnore
-    @CreatedBy
-    private String createdBy;
+    @Version
+    private Integer lockVersion;
+
 
 //    private int deleteFlag;
     @JsonIgnore
     protected LocalDateTime deletedOn;
 
-//    @PrePersist
-//    public void prePersist() {
+//    @PreUpdate
+//    public void preUpdate() {
 //
-//        this.createdBy = "createdBy";
 //        this.updatedBy = "updatedBy";
+//        this.updatedAt = new Date(System.currentTimeMillis());
+//
 //    }
+
 
 
 }

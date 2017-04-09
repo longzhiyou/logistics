@@ -1,5 +1,7 @@
 package lzy.demo;
 
+import lzy.module.auth.domain.UserEntity;
+import lzy.module.auth.repository.UserRepository;
 import lzy.module.party.domain.Customer;
 import lzy.module.party.repository.CustomerRepository;
 import org.slf4j.Logger;
@@ -14,17 +16,26 @@ public class HelloController {
     private final Logger log = LoggerFactory.getLogger(getClass());
 
     @Autowired
-    CustomerRepository customerRepository;
+    UserRepository userRepository;
 
     @RequestMapping("/hello")
     public String index() {
 
+        UserEntity userEntity = new UserEntity();
+        userEntity.setEnabled(true);
+        userEntity.setUsername("longzhiyouadd");
+        userEntity.setPassword("qqq123456");
+        UserEntity save = userRepository.save(userEntity);
+
+        userEntity.setUsername("changelongzhiyou");
+        save=  userRepository.save(userEntity);
+
         // fetch all customers
         log.info("Customers found with findAll():");
         log.info("-------------------------------");
-        for (Customer customer : customerRepository.findAll()) {
-            log.info(customer.toString());
-        }
+//        for (Customer customer : customerRepository.findAll()) {
+//            log.info(customer.toString());
+//        }
         log.info("");
 
         return "Greetings from Spring Boot!";

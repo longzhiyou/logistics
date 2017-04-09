@@ -44,16 +44,23 @@
 - 500 INTERNAL SERVER ERROR - [*]：服务器发生错误，用户将无法判断发出的请求是否成功。
 
 
-
-
 ### 命名约定
 - 数据表名：单数，下划线分隔单词（例如 book_club）
 - 模型类名：单数，每个单词的首字母大写（例如 BookClub）
 - 控制器:   PhotoController
 - 文件命名全部采取首字母大写
 
+## 数据建模相关
+### 外键
+- 不生成外键,由jpa内部控制
+-
+
+
 ### 相关技术
 - [restangular](https://github.com/mgonto/restangular)
+- [spring boot 1.4默认使用 hibernate validator](http://www.cnblogs.com/softidea/p/6043879.html)
+- jpa
+    - [JPA One-To-One Shared Primary Key Relationship Mapping Example with Spring Boot](https://hellokoding.com/jpa-one-to-one-shared-primary-key-relationship-mapping-example-with-spring-boot-hsql/)
 
 ### 参考
 1. [RESTful API 设计指南](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)

@@ -41,13 +41,6 @@ public class SoftDeletesRepositoryImpl<T, ID extends Serializable> extends Simpl
 
 	@Override
 	@Transactional
-	public void delete(ID id) {
-		Assert.notNull(id, "The given id must not be null!");
-		softDelete(id, LocalDateTime.now());
-	}
-
-	@Override
-	@Transactional
 	public void softDelete(ID id) {
 		Assert.notNull(id, "The given id must not be null!");
 		softDelete(id, LocalDateTime.now());
