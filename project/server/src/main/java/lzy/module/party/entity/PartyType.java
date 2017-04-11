@@ -1,4 +1,4 @@
-package lzy.module.party.domain;
+package lzy.module.party.entity;
 
 import lombok.Data;
 
@@ -10,9 +10,10 @@ import javax.persistence.*;
  */
 @Data
 @Entity
-public class RoleType {
+public class PartyType {
     @Id
-    private Integer roleTypeId;
+    private Integer partyTypeId;
     private String description;
+
 
 }

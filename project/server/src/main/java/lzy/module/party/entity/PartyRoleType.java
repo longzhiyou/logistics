@@ -1,11 +1,9 @@
-package lzy.module.party.domain;
+package lzy.module.party.entity;
 
 import lombok.Data;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  *

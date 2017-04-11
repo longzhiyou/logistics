@@ -50,10 +50,20 @@
 - 控制器:   PhotoController
 - 文件命名全部采取首字母大写
 
+## DDD
+- 控制器接收领域模型
+- 领域服务接收领域模型，并分解为实体类
+- 由仓库接口相互配置保存对应的实体类。
+
 ## 数据建模相关
-### 外键
-- 不生成外键,由jpa内部控制
--
+### 关系
+- party
+    - person(ON DELETE CASCADE)
+    - organization(ON DELETE CASCADE)
+- role_type
+    - party_role_type(ON DELETE CASCADE)
+
+- party_role(party+ party_role_type)
 
 
 ### 相关技术

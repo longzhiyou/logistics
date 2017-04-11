@@ -1,8 +1,9 @@
-package lzy.module.party.domain;
+package lzy.module.party.entity;
 
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  *
@@ -10,8 +11,9 @@ import javax.persistence.*;
  */
 @Data
 @Entity
-@IdClass(PartyRolePK.class)
-public class PartyRole {
+public class PartyRole implements Serializable {
+
+//    @EmbeddedId
     @Id
     private Integer partyId;
     @Id

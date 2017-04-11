@@ -1,17 +1,20 @@
-package lzy.module.party.domain;
+package lzy.module.party.entity;
 
-import javax.persistence.Id;
+import lombok.Data;
+
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
  *
  * Created by bukeyan on 2017/4/9.
  */
-public class PersonRolePK implements Serializable {
+@Data
+@Entity
+public class PersonRole implements Serializable {
     @Id
     private Integer partyId;
     @Id
     private Integer roleTypeId;
-
 
 }

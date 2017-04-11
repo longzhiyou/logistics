@@ -1,10 +1,8 @@
-package lzy.module.party.domain;
+package lzy.module.party.entity;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 
 /**

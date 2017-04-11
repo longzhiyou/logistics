@@ -6,8 +6,9 @@ package lzy.module.party.repository;
  * Time: 14:42
  */
 
-import lzy.module.party.entity.Party;
+import lzy.module.party.entity.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PartyRepository extends JpaRepository<Party, Long>{
+public interface PersonRepository extends JpaRepository<Person, Long>{
+
 }

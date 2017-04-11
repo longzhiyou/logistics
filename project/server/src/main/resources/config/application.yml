@@ -4,6 +4,7 @@ server:
   port: ${port:9002}
 
 
+
 ##h2
 #spring:
 #  datasource:
@@ -17,8 +18,13 @@ server:
 #      ddl-auto: update
 
 
+
+
 #mysql
 spring:
+  output:
+    ansi:
+      enabled: detect
   datasource:
       url: jdbc:mysql://localhost:3306/logistics?useUnicode=true&characterEncoding=UTF-8&useSSL=false&zeroDateTimeBehavior=convertToNull
       username: admin

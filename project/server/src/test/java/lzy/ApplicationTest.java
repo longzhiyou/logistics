@@ -3,8 +3,15 @@ package lzy;
 
 import lzy.module.auth.domain.UserEntity;
 import lzy.module.auth.repository.UserRepository;
-import lzy.module.party.domain.Party;
+import lzy.module.party.domain.CustomerDomain;
+import lzy.module.party.domain.CustomerService;
+import lzy.module.party.entity.PartyRoleType;
+import lzy.module.party.entity.Person;
+import lzy.module.party.entity.RoleType;
 import lzy.module.party.repository.PartyRepository;
+import lzy.module.party.repository.PartyRoleTypeRepository;
+import lzy.module.party.repository.RoleTypeRepository;
+import lzy.module.party.domain.PersonService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -14,9 +21,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -31,8 +35,8 @@ public class ApplicationTest {
     @Autowired
     UserRepository userRepository;
 
-//    @Autowired
-//    PersonService personService;
+    @Autowired
+    PersonService personService;
 //
 //    @Autowired
 //    PartyRepository partyRepository;
@@ -44,6 +48,15 @@ public class ApplicationTest {
 
     @Autowired
     PartyRepository partyRepository;
+
+    @Autowired
+    RoleTypeRepository roleTypeRepository;
+
+    @Autowired
+    PartyRoleTypeRepository partyRoleTypeRepository;
+
+    @Autowired
+    CustomerService customerService;
 
 
     @Test
@@ -135,12 +148,62 @@ public class ApplicationTest {
 //        Party party = new Party();
 //        party.setPartyId(10);
 
-        Party one = partyRepository.findOne(2);
+//        Party one = partyRepository.findOne(2);
+//        assertNotNull(one);
+//        partyRepository.delete(2);
+
+//        RoleType one = roleTypeRepository.findOne(1);
+//        assertNotNull(one);
+
+        PartyRoleType one = partyRoleTypeRepository.findOne(1);
         assertNotNull(one);
-        partyRepository.delete(2);
+
+        logger.info(one.toString());
 
 
     }
+
+
+    @Test
+    @Transactional
+    @Rollback(false)
+    public void testPerson() throws Exception {
+
+        Person person = new Person();
+        person.setName("lzy");
+        Person newPerson = personService.create(person);
+        assertNotNull(newPerson);
+        logger.info(newPerson.toString());
+
+
+    }
+
+    @Test
+    @Transactional
+    @Rollback(false)
+    public void testCustomer() throws Exception {
+
+        /**
+         *  增加一个客户的逻辑
+         *  - 创建一个 party
+         *  - 创建一个 person
+         *  - 创建一个 role_type
+         *  - 创建一个 party_role_type
+         * [2017-04-10 add by longzhiyou]
+         */
+
+        CustomerDomain customerDomain = new CustomerDomain();
+        customerDomain.setName("long customer");
+        customerDomain.setCreditCard("2301010011");
+        customerDomain = customerService.create(customerDomain);
+        assertNotNull(customerDomain);
+
+        logger.info(customerDomain.toString());
+
+
+    }
+
+
 
 
 

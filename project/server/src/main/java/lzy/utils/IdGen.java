@@ -30,6 +30,10 @@ public class IdGen {
 		return Math.abs(random.nextLong());
 	}
 
+	public static int randomInt() {
+		return Math.abs(random.nextInt());
+	}
+
 
 	public String getNextId() {
 		return IdGen.uuid();

@@ -2,6 +2,8 @@ package lzy.utils;
 
 import org.apache.log4j.Logger;
 
+import java.security.SecureRandom;
+
 /**
  * 使用场景：需要随机数不重复时使用
  * Twitter的分布式自增ID算法snowflake (Java版)
@@ -43,6 +45,8 @@ public class IdWorker {
         }
         return idWorker;
     }
+
+    private static SecureRandom random = new SecureRandom();
 
     public static long getId(){
         return  IdWorker.getInstance().nextId();

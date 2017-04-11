@@ -1,35 +1,21 @@
-package lzy.module.party.domain;
+package lzy.module.party.entity;
 
-import javax.persistence.Column;
+import lombok.Data;
+
 import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
+ *
  * Created by bukeyan on 2017/4/9.
  */
+@Data
+//@Embeddable
 public class CustomerPK implements Serializable {
-    private Integer partyId;
+    @Id
+    private Long partyId;
+    @Id
     private Integer roleTypeId;
-
-    @Column(name = "PARTY_ID")
-    @Id
-    public Integer getPartyId() {
-        return partyId;
-    }
-
-    public void setPartyId(Integer partyId) {
-        this.partyId = partyId;
-    }
-
-    @Column(name = "ROLE_TYPE_ID")
-    @Id
-    public Integer getRoleTypeId() {
-        return roleTypeId;
-    }
-
-    public void setRoleTypeId(Integer roleTypeId) {
-        this.roleTypeId = roleTypeId;
-    }
 
     @Override
     public boolean equals(Object o) {

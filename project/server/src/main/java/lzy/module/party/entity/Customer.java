@@ -1,5 +1,5 @@
 
-package lzy.module.party.domain;
+package lzy.module.party.entity;
 
 import lombok.Data;
 
@@ -11,12 +11,11 @@ import javax.persistence.*;
 public class Customer {
 
     @Id
-    private Integer partyId;
+    private Long partyId;
     @Id
     private Integer roleTypeId;
-    private String firstName;
-    private String lastName;
 
+    private String creditCard;
 
 
 }

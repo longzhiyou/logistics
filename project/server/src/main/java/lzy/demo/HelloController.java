@@ -2,8 +2,6 @@ package lzy.demo;
 
 import lzy.module.auth.domain.UserEntity;
 import lzy.module.auth.repository.UserRepository;
-import lzy.module.party.domain.Customer;
-import lzy.module.party.repository.CustomerRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
