@@ -14,6 +14,7 @@ angular.module('BlurAdmin', [
   'angular-progress-button-styles',
   'angular-jwt',
     'restangular',
+    'datatables',
   'BlurAdmin.theme',
   'BlurAdmin.pages'
 ]);
