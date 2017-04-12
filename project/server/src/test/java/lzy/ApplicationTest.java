@@ -3,15 +3,14 @@ package lzy;
 
 import lzy.module.auth.domain.UserEntity;
 import lzy.module.auth.repository.UserRepository;
-import lzy.module.party.domain.CustomerDomain;
-import lzy.module.party.domain.CustomerService;
+import lzy.module.customer.domain.CustomerDomain;
+import lzy.module.customer.service.CustomerService;
 import lzy.module.party.entity.PartyRoleType;
 import lzy.module.party.entity.Person;
-import lzy.module.party.entity.RoleType;
 import lzy.module.party.repository.PartyRepository;
 import lzy.module.party.repository.PartyRoleTypeRepository;
 import lzy.module.party.repository.RoleTypeRepository;
-import lzy.module.party.domain.PersonService;
+import lzy.module.party.service.PersonService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;

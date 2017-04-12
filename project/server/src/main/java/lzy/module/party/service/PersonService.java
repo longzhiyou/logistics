@@ -1,4 +1,4 @@
-package lzy.module.party.domain;
+package lzy.module.party.service;
 
 import lzy.module.party.entity.Party;
 import lzy.module.party.entity.Person;

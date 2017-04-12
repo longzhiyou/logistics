@@ -1,5 +1,5 @@
 
-package lzy.module.party.domain;
+package lzy.module.customer.domain;
 
 import lombok.Data;
 

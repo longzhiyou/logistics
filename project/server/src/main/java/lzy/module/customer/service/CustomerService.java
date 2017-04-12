@@ -1,5 +1,7 @@
-package lzy.module.party.domain;
+package lzy.module.customer.service;
 
+import lzy.module.customer.domain.CustomerDomain;
+import lzy.module.party.service.PersonService;
 import lzy.module.party.entity.Customer;
 import lzy.module.party.entity.Person;
 import lzy.module.party.entity.RoleTypeDefine;

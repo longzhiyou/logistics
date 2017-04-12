@@ -1,13 +1,8 @@
-package lzy.module.party.domain;
+package lzy.module.party.service;
 
-import lzy.module.party.entity.Party;
 import lzy.module.party.entity.PartyRoleType;
-import lzy.module.party.entity.Person;
-import lzy.module.party.repository.PartyRepository;
 import lzy.module.party.repository.PartyRoleTypeRepository;
-import lzy.module.party.repository.PersonRepository;
 import lzy.module.party.repository.RoleTypeRepository;
-import lzy.utils.IdWorker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
