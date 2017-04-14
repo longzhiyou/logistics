@@ -2,6 +2,7 @@
 package lzy.module.customer.domain;
 
 import lombok.Data;
+import lombok.extern.java.Log;
 
 
 /**
@@ -9,6 +10,7 @@ import lombok.Data;
  * [2017-04-11 add by longzhiyou]
  */
 @Data
+@Log
 public class CustomerDomain {
 
     //人员相关信息

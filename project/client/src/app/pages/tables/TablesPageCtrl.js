@@ -11,6 +11,8 @@
   /** @ngInject */
   function TablesPageCtrl($scope, $filter, editableOptions, editableThemes) {
 
+
+
     $scope.smartTablePageSize = 10;
 
     $scope.smartTableData = [
