@@ -11,6 +11,7 @@ import lzy.module.party.repository.PartyRepository;
 import lzy.module.party.repository.PartyRoleTypeRepository;
 import lzy.module.party.repository.RoleTypeRepository;
 import lzy.module.party.service.PersonService;
+import lzy.utils.LicenseGenerator;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -20,6 +21,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -56,6 +59,7 @@ public class ApplicationTest {
 
     @Autowired
     CustomerService customerService;
+
 
 
     @Test
@@ -180,6 +184,17 @@ public class ApplicationTest {
     @Test
     @Transactional
     @Rollback(false)
+    public void findCustomer() throws Exception {
+
+        List<CustomerDomain> customers = customerService.getCustomers();
+        assertNotNull(customers);
+
+        logger.info(customers.toString());
+
+    }
+    @Test
+    @Transactional
+    @Rollback(false)
     public void testCustomer() throws Exception {
 
         /**
@@ -191,14 +206,28 @@ public class ApplicationTest {
          * [2017-04-10 add by longzhiyou]
          */
 
-        CustomerDomain customerDomain = new CustomerDomain();
-        customerDomain.setName("long customer");
-        customerDomain.setCreditCard("2301010011");
-        customerDomain = customerService.create(customerDomain);
-        assertNotNull(customerDomain);
+        for (int i=100;i<150;i++){
 
-        logger.info(customerDomain.toString());
+            CustomerDomain customerDomain = new CustomerDomain();
+            customerDomain.setName(String.format("lzy-%d",i));
+            customerDomain.setCreditCard(String.format("CreditCard-%d",i));
+            customerDomain = customerService.create(customerDomain);
+            assertNotNull(customerDomain);
 
+            logger.info(customerDomain.toString());
+
+        }
+
+
+
+    }
+
+    @Test
+
+    public void testLicenseGenerator()  {
+        //5f944592c74518d249bb3e5d58b884c8a2bcca5c7b58cc91e7a64b634ebfc015
+        String license = LicenseGenerator.getLicense();
+        logger.info(license);
 
     }
 

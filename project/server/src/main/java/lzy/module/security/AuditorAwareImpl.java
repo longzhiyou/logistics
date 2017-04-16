@@ -24,7 +24,8 @@ public class AuditorAwareImpl implements AuditorAware<String> {
             return userName;
         }
         //获取登陆用户的用户名
-        userName =  ((UserDetails) authentication.getPrincipal()).getUsername();
+        userName = authentication.getName();
+//        userName =  ((UserDetails) authentication.getName()).getUsername();
         return userName;
     }
 }

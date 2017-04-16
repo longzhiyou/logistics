@@ -17,6 +17,17 @@ public class Customer {
 
     private String creditCard;
 
+//    @Id
+//    @ManyToOne
+//    @JoinColumn(name = "party_id")
+//    private Person person;
+//
+//    @Id
+//    @ManyToOne
+//    @JoinColumn(name = "role_type_id")
+//    private RoleType roleType;
+
+
 
 }
 

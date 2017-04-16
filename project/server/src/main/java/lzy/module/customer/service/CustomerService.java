@@ -1,15 +1,19 @@
 package lzy.module.customer.service;
 
 import lzy.module.customer.domain.CustomerDomain;
-import lzy.module.party.service.PersonService;
+import lzy.module.customer.repository.CustomerRepositoryMybatis;
 import lzy.module.party.entity.Customer;
 import lzy.module.party.entity.Person;
 import lzy.module.party.entity.RoleTypeDefine;
 import lzy.module.party.repository.CustomerRepository;
+import lzy.module.party.repository.RoleTypeRepository;
+import lzy.module.party.service.PersonService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * User: longzhiyou
@@ -26,6 +30,11 @@ public class CustomerService {
     @Autowired
     CustomerRepository customerRepository;
 
+    @Autowired
+    RoleTypeRepository roleTypeRepository;
+
+    @Autowired
+    CustomerRepositoryMybatis customerRepositoryMybatis;
 
     @Transactional
     public CustomerDomain create(CustomerDomain customerDomain){
@@ -43,15 +52,28 @@ public class CustomerService {
         BeanUtils.copyProperties(customerDomain,person);
         person = personService.create(person);
 
+//        RoleType roleType = roleTypeRepository.findOne(RoleTypeDefine.CUSTOMER);
+
         Customer customer = new Customer();
         BeanUtils.copyProperties(customerDomain,customer);
+//        customer.setPerson(person);
+//        customer.setRoleType(roleType);
+        customer.setCreditCard(customerDomain.getCreditCard());
+
         customer.setPartyId(person.getPartyId());
         customer.setRoleTypeId(RoleTypeDefine.CUSTOMER);
 
-        customer=customerRepository.save(customer);
-        customerDomain.setPartyId(customer.getPartyId());
+        customerRepository.save(customer);
+        customerDomain.setPartyId(person.getPartyId());
+
+
         return customerDomain;
 
+    }
+
+    public List<CustomerDomain> getCustomers(){
+
+        return customerRepositoryMybatis.findAll();
     }
 
 }

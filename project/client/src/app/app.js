@@ -13,20 +13,29 @@ angular.module('BlurAdmin', [
   'ngJsTree',
   'angular-progress-button-styles',
   'angular-jwt',
-    'restangular',
-    'datatables',
+  'restangular',
+  'datatables',
+  'datatables.buttons',
+  //'datatables.bootstrap',
+  //  'datatables.colvis','datatables.bootstrap.colvis',
   'BlurAdmin.theme',
   'BlurAdmin.pages'
 ]);
+
+angular.module('BlurAdmin')
+    .constant('defaultOptionsDom'
+        ,'<"row"<"col-xs-9 col-md-9"B><"col-xs-3 col-md-3"f>>rt<"row"<"col-md-3"l><"col-md-6"p><"col-md-3"i>>');
 
 angular.module('BlurAdmin')
     .config(config).run(appRun);
 
 /** @ngInject */
 function config($httpProvider
+    ,RestangularProvider
     ,jwtOptionsProvider) {
 
-    console.info("app config");
+    //console.info("app config");
+    RestangularProvider.setBaseUrl('http://localhost:9002/api');
 
     // Please note we're annotating the function so that the $injector works when the file is minified
     jwtOptionsProvider.config({
@@ -49,8 +58,42 @@ function config($httpProvider
 }
 
 /** @ngInject */
-function appRun(authManager,$rootScope,$window) {
-    console.info("appRun");
+function appRun(authManager,$rootScope,$window,DTDefaultOptions) {
+    //console.info("appRun");
+
+var oLanguage=
+    {
+        "sEmptyTable":     "没有可用的数据",
+        "sInfo":           "显示 _START_ 到 _END_ 共 _TOTAL_ 条",
+        "sInfoEmpty":      "Showing 0 to 0 of 0 entries",
+        "sInfoFiltered":   "(filtered from _MAX_ total entries)",
+        "sInfoPostFix":    "",
+        "sInfoThousands":  ",",
+        "sLengthMenu":     "每页显示 _MENU_ 条",
+        "sLoadingRecords": "加载中...",
+        "sProcessing":     "处理中...",
+        "sSearch":         "查询:",
+        "sZeroRecords":    "没有发现匹配的记录",
+        "oPaginate": {
+        "sFirst":    "第一页",
+            "sLast":     "最后一页",
+            "sNext":     "下一页",
+            "sPrevious": "上一页"
+    },
+        "oAria": {
+        "sSortAscending":  ": activate to sort column ascending",
+            "sSortDescending": ": activate to sort column descending"
+    }
+    };
+    DTDefaultOptions.setLanguage(oLanguage);
+
+    //var dom = "<'row'<'col-sm-6'l><'col-sm-6'f>>" +
+    //"<'row'<'col-sm-12'tr>>" +
+    //"<'row'<'col-sm-5'i><'col-sm-7'p>>";
+
+    //DTDefaultOptions.setDOM(dom);
+    //DTDefaultOptions.setDOM('<"row"<"col-xs-9 col-md-9"B><"col-xs-3 col-md-3"f>>rt<"row"<"col-md-3"l><"col-md-6"p><"col-md-3"i>>');
+    //DTDefaultOptions.setOption('dom','<"row"<"col-xs-9 col-md-9"B><"col-xs-3 col-md-3"f>>rt<"row"<"col-md-3"l><"col-md-6"p><"col-md-3"i>>');
     //authManager.checkAuthOnRefresh();
     authManager.redirectWhenUnauthenticated();
 
