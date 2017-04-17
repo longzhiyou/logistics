@@ -10,6 +10,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 
 /**
  * User: longzhiyou
@@ -28,11 +30,13 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+//    @ExceptionHandler({UnauthorizedException.class})
+    public UserDetails loadUserByUsername(String username) {
 
         UserEntity userEntity = authService.findUser(username);
         if (null==userEntity) {
-            throw new UnauthorizedException(String.format("没有发现用户 '%s'.", username));
+            return null;
+//            throw new UnauthorizedException(String.format("没有发现用户 '%s'.", username));
         }
 
         UserInfo user = new UserInfo();

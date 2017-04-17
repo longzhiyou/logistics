@@ -49,7 +49,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
             // You could also store the information in the token and read it from it. It's up to you ;)
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
 
-            if (jwtTokenUtil.validateToken(authToken, userDetails)) {
+            if (userDetails!=null&&jwtTokenUtil.validateToken(authToken, userDetails)) {
                 UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
                         userDetails, null, userDetails.getAuthorities());
                 authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));

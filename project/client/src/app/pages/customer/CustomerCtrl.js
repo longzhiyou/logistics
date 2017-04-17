@@ -74,6 +74,7 @@
     ];
 
     function loadData(){
+
       Restangular.all('customers').getList().then(function(customers) {
         vm.customers = customers;
         for (var index=0;index<customers.length;index++){

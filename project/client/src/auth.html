@@ -78,6 +78,7 @@
                      RestangularProvider) {
     var ip = "http://localhost:9002";
     RestangularProvider.setBaseUrl(ip+"/api/");
+    RestangularProvider.setFullResponse(true);
 //    $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
   }
@@ -85,7 +86,7 @@
   angular.module('login')
           .controller('loginCtrl', loginCtrl);
   /** @ngInject */
-  function loginCtrl($scope,Restangular,$window) {
+  function loginCtrl($scope,Restangular) {
 
 
     $scope.credentials={username:"",password:""};
@@ -96,12 +97,13 @@
       var login = Restangular.all('/auth/login');
       login.post($scope.credentials).then(function(account) {
 
-        localStorage.setItem("token",account.token);
-        var landingUrl = "http://" + $window.location.host;
+        localStorage.setItem("token",account.data.token);
+        var landingUrl = "http://" + window.location.host;
         console.log(landingUrl);
-        $window.location.href = landingUrl;
+        window.location.href = landingUrl;
 
-      }, function() {
+      }, function(error) {
+        console.info(error);
 
       });
 

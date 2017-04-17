@@ -4,6 +4,7 @@ import lzy.common.CommonDefine;
 import lzy.module.customer.domain.CustomerDomain;
 import lzy.module.customer.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,6 +27,15 @@ public class CustomerController {
     public List<CustomerDomain> index() {
 
         return customerService.getCustomers();
+
+    }
+
+    @RequestMapping(method= RequestMethod.POST,consumes = "application/json")
+    public CustomerDomain create(@RequestBody CustomerDomain customerDomain) {
+
+        CustomerDomain customerDomain1 = new CustomerDomain();
+
+        return customerDomain1;
 
     }
 

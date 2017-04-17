@@ -5,13 +5,14 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.customer', [])
+  angular.module('BlurAdmin.pages.customer', [
+  ])
     .config(routeConfig);
 
   /** @ngInject */
   function routeConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
-        .state('customerManager', {
+        .state('customers', {
           url: '/customers',
           template : '<ui-view  autoscroll="true" autoscroll-body-top></ui-view>',
           abstract: true,
@@ -21,7 +22,7 @@
             icon: 'ion-grid',
             order: 300
           }
-        }).state('customerManager.customers', {
+        }).state('customers.index', {
           url: '/index',
           templateUrl: 'app/pages/customer/customer.html',
           controller: 'CustomerCtrl',
@@ -30,7 +31,18 @@
           sidebarMeta: {
             order: 0
           }
-        });
+        })
+        .state('customers.create', {
+        url: '/create',
+        templateUrl: 'app/pages/customer/create.html',
+        controller: 'CustomerCreateCtrl',
+        //controllerAs: 'vm',
+        title: '创建客户',
+        sidebarMeta: {
+            order: 1
+            }
+        })
+    ;
     $urlRouterProvider.when('/customers','/customers/index');
   }
 

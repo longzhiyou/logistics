@@ -47,9 +47,9 @@ function config($httpProvider
             return token;
         }
         ,unauthenticatedRedirector: function() {
-            var landingUrl = "http://" + $window.location.host + "/auth.html";
+            var landingUrl = "http://" + window.location.host + "/auth.html";
             console.log(landingUrl);
-            $window.location.href = landingUrl;
+            window.location.href = landingUrl;
         }
         ,whiteListedDomains: ['localhost']
     });
@@ -58,14 +58,14 @@ function config($httpProvider
 }
 
 /** @ngInject */
-function appRun(authManager,$rootScope,$window,DTDefaultOptions) {
+function appRun(authManager,$rootScope,DTDefaultOptions) {
     //console.info("appRun");
 
 var oLanguage=
     {
         "sEmptyTable":     "没有可用的数据",
         "sInfo":           "显示 _START_ 到 _END_ 共 _TOTAL_ 条",
-        "sInfoEmpty":      "Showing 0 to 0 of 0 entries",
+        "sInfoEmpty":      "显示 0 to 0 of 0 条",
         "sInfoFiltered":   "(filtered from _MAX_ total entries)",
         "sInfoPostFix":    "",
         "sInfoThousands":  ",",
@@ -101,9 +101,9 @@ var oLanguage=
         function (event, toState, toParams, fromState, fromParams) {
             //console.log("fromState"+fromState.toString()+"toState"+toState.toString());
             if (!authManager.isAuthenticated() ) {
-                var landingUrl = "http://" + $window.location.host + "/auth.html";
+                var landingUrl = "http://" + window.location.host + "/auth.html";
                 console.log(landingUrl);
-                $window.location.href = landingUrl;
+                window.location.href = landingUrl;
             }
 
         });
