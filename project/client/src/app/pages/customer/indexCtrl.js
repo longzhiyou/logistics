@@ -6,10 +6,10 @@
   'use strict';
 
   angular.module('BlurAdmin.pages.customer')
-      .controller('CustomerCtrl', CustomerCtrl);
+      .controller('indexCtrl', indexCtrl);
 
   /** @ngInject */
-  function CustomerCtrl($scope, Restangular, DTOptionsBuilder, DTColumnDefBuilder,defaultOptionsDom) {
+  function indexCtrl($state, Restangular, DTOptionsBuilder, DTColumnDefBuilder,defaultOptionsDom) {
 
     var vm = this;
 
@@ -39,9 +39,9 @@
 
 
 
-    vm.addCustomer = addCustomer;
-    vm.modifyCustomer = modifyCustomer;
-    vm.removeCustomer = removeCustomer;
+    vm.create = create;
+    vm.edit = edit;
+    vm.destroy = destroy;
     vm.reloadData = reloadData;
     vm.loadData = loadData;
 
@@ -92,16 +92,28 @@
       });
     }
 
-    function addCustomer() {
-      //vm.Customers.push(angular.copy(vm.Customer2Add));
-      //vm.Customer2Add = _buildCustomer2Add(vm.Customer2Add.id + 1);
-    }
-    function modifyCustomer(index) {
+    function create(){
 
     }
-    function removeCustomer(index) {
-      //vm.customers.splice(index, 1);
+
+    function edit(index){
+      $state.go('customers.edit',{"id":vm.customers[index].partyId});
     }
+
+    function destroy(index){
+
+    }
+    //
+    //function add() {
+    //  //vm.Customers.push(angular.copy(vm.Customer2Add));
+    //  //vm.Customer2Add = _buildCustomer2Add(vm.Customer2Add.id + 1);
+    //}
+    //function modify(index) {
+    //
+    //}
+    //function remove(index) {
+    //  //vm.customers.splice(index, 1);
+    //}
 
 
     function init(){

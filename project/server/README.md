@@ -3,7 +3,7 @@
 
 ## Restful为核心进行设计
 
-### 系统定义资源 CRUD，HTTP 方法和动作
+### 参考
 | HTTP 方法| 路径| 控制器#动作|作用|备注|
 | ------------- |-------------|-----|----|----|
 |GET|/photos| photos#index|显示所有图片||
@@ -13,6 +13,18 @@
 |DELETE| /photos/:id | photos#destroy|删除指定的图片||
 |GET|/photos/new|photos#new|显示新建图片的表单|前端作为路由控制时不适用|
 |GET|/photos/:id/edit|photos#edit|显示新建图片的表单|前端作为路由控制时不适用|
+
+### 参考rails routes
+| Prefix| Verb| URI Pattern|前端路由|Controller#Action|备注|
+| ------------- |-------------|-----|----|----|----|
+|articles|GET| /articles(.:format)|articles#index|index|
+|articles| POST |/articles(.:format) |articles#create|create|
+|new_article|GET|/articles/new(.:format)|articles#new|后端不需要|
+|edit_article| GET|/articles/:id/edit(.:format)|articles#edit|后端不需要|
+|article|GET  | /articles/:id(.:format)|articles#show|show|
+|article|PUT|/articles/:id(.:format)|articles#update|update|
+|article|DELETE|/articles/:id(.:format)|articles#destroy|destroy|
+
 
 ### 返回结果
 - GET /collection：返回资源对象的列表（数组）

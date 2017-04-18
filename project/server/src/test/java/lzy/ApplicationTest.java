@@ -26,12 +26,18 @@ import java.util.List;
 
 import static org.junit.Assert.assertNotNull;
 
-
+//@AutoConfigureMockMvc
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ApplicationTest {
 
     private static final Logger logger = LoggerFactory.getLogger(ApplicationTest.class);
+
+//    @Autowired
+//    private MockMvc mvc;
+//
+//    @MockBean
+//    private StorageService storageService;
 
 
     @Autowired
@@ -61,6 +67,17 @@ public class ApplicationTest {
     CustomerService customerService;
 
 
+
+//    @Test
+//    public void shouldSaveUploadedFile() throws Exception {
+//        MockMultipartFile multipartFile =
+//                new MockMultipartFile("file", "test.txt", "text/plain", "Spring Framework".getBytes());
+//        this.mvc.perform(fileUpload("/").file(multipartFile))
+//                .andExpect(status().isFound())
+//                .andExpect(header().string("Location", "/"));
+//
+//        then(this.storageService).should().store(multipartFile);
+//    }
 
     @Test
     @Transactional

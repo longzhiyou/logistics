@@ -64,21 +64,21 @@ function appRun(authManager,$rootScope,DTDefaultOptions) {
 var oLanguage=
     {
         "sEmptyTable":     "没有可用的数据",
-        "sInfo":           "显示 _START_ 到 _END_ 共 _TOTAL_ 条",
+        "sInfo":           "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
         "sInfoEmpty":      "显示 0 to 0 of 0 条",
-        "sInfoFiltered":   "(filtered from _MAX_ total entries)",
+        "sInfoFiltered":   "(从 _MAX_ 条数据中检索)",
         "sInfoPostFix":    "",
         "sInfoThousands":  ",",
-        "sLengthMenu":     "每页显示 _MENU_ 条",
+        "sLengthMenu":     "每页显示 _MENU_ 条记录",
         "sLoadingRecords": "加载中...",
         "sProcessing":     "处理中...",
         "sSearch":         "查询:",
-        "sZeroRecords":    "没有发现匹配的记录",
+        "sZeroRecords":    "没有检索到数据",
         "oPaginate": {
-        "sFirst":    "第一页",
-            "sLast":     "最后一页",
-            "sNext":     "下一页",
-            "sPrevious": "上一页"
+        "sFirst":    "首页",
+            "sLast":     "尾页",
+            "sNext":     "前一页",
+            "sPrevious": "后一页"
     },
         "oAria": {
         "sSortAscending":  ": activate to sort column ascending",
