@@ -3,11 +3,12 @@ package lzy.module.customer.controller;
 import lzy.common.CommonDefine;
 import lzy.module.customer.domain.CustomerDomain;
 import lzy.module.customer.service.CustomerService;
+import lzy.module.file.storage.StorageService;
+import lzy.utils.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.boot.json.JsonParser;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -19,6 +20,9 @@ import java.util.List;
 @RestController
 @RequestMapping(value = CommonDefine.BASE_URI+"/customers")
 public class CustomerController {
+
+    @Autowired
+    StorageService storageService;
 
     @Autowired
     CustomerService customerService;
@@ -36,6 +40,25 @@ public class CustomerController {
         CustomerDomain customerDomain1 = new CustomerDomain();
 
         return customerDomain1;
+
+    }
+
+//    @RequestBody MultipartFile uploadFiles
+    @RequestMapping(method= RequestMethod.POST,consumes = "multipart/form-data")
+    public CustomerDomain createForMultipart(
+            @RequestParam("jsonStr") String jsonStr,
+//            @RequestParam(value="avatar") MultipartFile avatar
+            @RequestParam(value="avatar",required =false ) MultipartFile avatar
+//            ,@RequestParam("files") MultipartFile[] uploadFiles
+    ) {
+
+        CustomerDomain customerDomain = JsonUtil.json2JavaBean(jsonStr, CustomerDomain.class);
+
+        if (avatar!=null) {
+            storageService.store(avatar);
+        }
+
+        return customerDomain;
 
     }
 

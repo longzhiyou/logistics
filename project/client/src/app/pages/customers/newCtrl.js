@@ -5,19 +5,19 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.customer')
+  angular.module('BlurAdmin.pages.customers')
       .controller('newCtrl', newCtrl);
 
   /** @ngInject */
-  function newCtrl( $scope,fileReader, $filter, $uibModal, Restangular) {
+  function newCtrl($scope,fileReader, $filter, $uibModal, Restangular) {
 
-    var vm = this;
-
-    vm.formData={};
-    vm.create=create;
+    $scope.formData={
+      name:"",
+      creditCard:""
+    };
+    $scope.create=create;
 
     $scope.picture = $filter('profilePicture')('Nasta');
-
     $scope.removePicture = function () {
       $scope.picture = $filter('appImage')('theme/no-photo.png');
       $scope.noPicture = true;
@@ -36,10 +36,17 @@
           });
     };
 
+
     function create(){
-      Restangular.all('users')
+      var fd = new FormData();
+      var  jsonStr=  JSON.stringify($scope.formData);
+      fd.append('jsonStr', jsonStr);
+      fd.append('avatar', $scope.file);
+
+
+      Restangular.all('customers')
           .withHttpConfig({transformRequest: angular.identity})
-          .customPOST(vm.formData, undefined, undefined,
+          .customPOST(fd, undefined, undefined,
               { 'Content-Type': undefined });
     }
 

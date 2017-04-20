@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.customer', [
+  angular.module('BlurAdmin.pages.customers', [
   ])
     .config(routeConfig);
 
@@ -23,19 +23,20 @@
           }
         }).state('customers.index', {
           url: '',
-          templateUrl: 'app/pages/customer/index.html',
+          templateUrl: 'app/pages/customers/index.html',
           controller: 'indexCtrl',
           controllerAs: 'vm',
           title: '客户一览',
           sidebarMeta: {
-            order: 0
+              icon: 'ion-grid',
+                order: 0
           }
         })
         .state('customers.new', {
             url: '/new',
-            templateUrl: 'app/pages/customer/new.html',
+            templateUrl: 'app/pages/customers/new.html',
             controller: 'newCtrl',
-            controllerAs: 'vm',
+            //controllerAs: 'vm',
             title: '创建客户',
             sidebarMeta: {
                 order: 1
@@ -43,7 +44,7 @@
         })
         .state('customers.detail', {
             url: '/:id',
-            templateUrl: 'app/pages/customer/detail.html',
+            templateUrl: 'app/pages/customers/detail.html',
             controller: 'detailCtrl',
             controllerAs: 'vm',
             title: '详情客户'
@@ -51,7 +52,7 @@
         })
         .state('customers.edit', {
             url: '/:id/edit',
-            templateUrl: 'app/pages/customer/edit.html',
+            templateUrl: 'app/pages/customers/edit.html',
             controller: 'editCtrl',
             controllerAs: 'vm',
             title: '编辑客户'

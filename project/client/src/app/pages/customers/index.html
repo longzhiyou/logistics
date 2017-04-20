@@ -27,7 +27,12 @@
       <tr ng-repeat="customer in vm.customers">
 
         <td>{{ $index+1 }}</td>
-        <td><a ui-sref="customers.detail({id:{{customer.partyId}}})">{{ customer.name }}</a></td>
+        <td>
+          <a ui-sref="customers.detail({id:{{customer.partyId}}})"
+             ui-sref-opts="{reload:false}"
+          >
+            {{ customer.name }}</a>
+        </td>
         <td>{{ customer.creditCard }}</td>
 
 

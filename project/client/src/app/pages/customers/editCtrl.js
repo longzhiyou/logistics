@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.customer')
+  angular.module('BlurAdmin.pages.customers')
       .controller('editCtrl', editCtrl);
 
   /** @ngInject */

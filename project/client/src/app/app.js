@@ -36,6 +36,16 @@ function config($httpProvider
 
     //console.info("app config");
     RestangularProvider.setBaseUrl('http://localhost:9002/api');
+    //RestangularProvider.setDefaultHttpFields({cache: true});
+
+    //How can I send a delete WITHOUT a body?
+    //RestangularProvider.setRequestInterceptor(function(elem, operation) {
+    //    if (operation === "remove") {
+    //        return null;
+    //    }
+    //    return elem;
+    //});
+
 
     // Please note we're annotating the function so that the $injector works when the file is minified
     jwtOptionsProvider.config({
