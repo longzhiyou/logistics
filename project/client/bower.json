@@ -77,13 +77,22 @@
     "datatables.net-rowgroup": "^1.0.0",
     "datatables.net-rowgroup-bs": "^1.0.0",
     "datatables.net-rowreorder": "^1.2.0",
-    "angular-datatables": "^2.3.0"
+    "angular-datatables": "^2.3.0",
+    "w5c-validator": "angular-w5c-validator#^2.4.25"
   },
   "resolutions": {
     "angular": "~1.6.4",
     "jquery": "~3.1.1"
   },
   "overrides": {
+
+    "w5c-validator": {
+      "main": [
+
+        "w5cValidator.min.js"
+      ]
+    },
+
     "amcharts": {
       "main": [
         "./dist/amcharts/amcharts.js",
@@ -113,14 +122,11 @@
     "slimScroll": {
       "main": "./jquery.slimscroll.js"
     },
-
     "angular-datatables": {
       "main": [
         "demo/src/archives/dist/plugins/buttons/angular-datatables.buttons.min.js",
         "demo/src/archives/dist/plugins/bootstrap/angular-datatables.bootstrap.min.js",
         "demo/src/archives/dist/angular-datatables.min.js"
-
-
       ]
     },
     "font-awesome": {

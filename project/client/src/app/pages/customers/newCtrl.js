@@ -11,9 +11,12 @@
   /** @ngInject */
   function newCtrl($scope,fileReader, $filter, $uibModal, Restangular) {
 
+    //$scope.formData={
+    //  name:"",
+    //  creditCard:""
+    //};
     $scope.formData={
-      name:"",
-      creditCard:""
+
     };
     $scope.create=create;
 
@@ -47,7 +50,10 @@
       Restangular.all('customers')
           .withHttpConfig({transformRequest: angular.identity})
           .customPOST(fd, undefined, undefined,
-              { 'Content-Type': undefined });
+              { 'Content-Type': undefined }).then(function(customers) {
+        $state.go('customers.index');
+
+      });
     }
 
     function init(){
