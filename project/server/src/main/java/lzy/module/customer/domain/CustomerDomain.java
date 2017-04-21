@@ -17,6 +17,8 @@ public class CustomerDomain {
     private Long partyId;
     private String name;
 
+    //头像路径
+    private String avatar;
     //角色特有的信息
     private String creditCard;
     //...其他
