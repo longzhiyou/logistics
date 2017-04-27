@@ -1,5 +1,7 @@
 package lzy.module.customer.controller;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lzy.common.CommonDefine;
 import lzy.module.customer.domain.CustomerDomain;
 import lzy.module.customer.service.CustomerService;
@@ -7,6 +9,7 @@ import lzy.module.file.storage.StorageService;
 import lzy.utils.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.json.JsonParser;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -19,16 +22,19 @@ import java.util.List;
  */
 @RestController
 @RequestMapping(value = CommonDefine.BASE_URI+"/customers")
+
+@AllArgsConstructor
 public class CustomerController {
 
-    @Autowired
-    StorageService storageService;
+//    @Autowired
+    final StorageService storageService;
 
-    @Autowired
-    CustomerService customerService;
+//    @Autowired
+    final CustomerService customerService;
+
 
     @RequestMapping(method= RequestMethod.GET)
-    public List<CustomerDomain> index() {
+    public List<CustomerDomain> index(Pageable pageable) {
 
         return customerService.getCustomers();
 

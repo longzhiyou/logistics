@@ -1,5 +1,6 @@
-package lzy.common;
+package lzy.common.domain;
 
+import lzy.common.CommonDefine;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.domain.Specifications;

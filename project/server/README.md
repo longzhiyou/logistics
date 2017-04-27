@@ -1,6 +1,12 @@
 
 # logistics
 
+### [物资管理](http://wiki.mbalib.com/wiki/%E7%89%A9%E8%B5%84%E7%AE%A1%E7%90%86)
+- [物资计划制订](http://wiki.mbalib.com/wiki/%E7%89%A9%E8%B5%84%E8%AE%A1%E5%88%92)
+- [物资采购]()
+- [物资使用]
+- [物资储备](http://wiki.mbalib.com/wiki/%E7%89%A9%E8%B5%84%E5%82%A8%E5%A4%87)
+
 ## Restful为核心进行设计
 
 ### 参考
@@ -83,7 +89,9 @@
 - [spring boot 1.4默认使用 hibernate validator](http://www.cnblogs.com/softidea/p/6043879.html)
 - jpa
     - [JPA One-To-One Shared Primary Key Relationship Mapping Example with Spring Boot](https://hellokoding.com/jpa-one-to-one-shared-primary-key-relationship-mapping-example-with-spring-boot-hsql/)
-
+    - [JpaTreeDao](http://members.chello.at/fritz.ritzberger/downloads/jpatreedao/JpaTreeDao.html)
+    - [JPA-NestedSet](https://github.com/romanb/JPA-NestedSet)
+    - [Baobaba library applying the nested set model](http://baobab.sideralis.org/)
 ### 参考
 1. [RESTful API 设计指南](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)
 1.  [Rails 路由全解](http://guides.ruby-china.org/routing.html)

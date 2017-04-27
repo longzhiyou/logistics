@@ -1,4 +1,4 @@
-package lzy.common;
+package lzy.common.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

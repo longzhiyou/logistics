@@ -3,10 +3,10 @@ package lzy.module.auth.domain;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lzy.common.BaseEntity;
+import lzy.common.domain.BaseEntity;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
-import javax.persistence.Index;
+
 import javax.persistence.*;
 
 /**

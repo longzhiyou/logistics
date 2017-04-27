@@ -1,4 +1,4 @@
-package lzy.common;
+package lzy.common.domain;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.repository.NoRepositoryBean;

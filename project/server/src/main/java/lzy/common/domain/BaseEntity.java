@@ -1,4 +1,4 @@
-package lzy.common;
+package lzy.common.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
