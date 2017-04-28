@@ -3,21 +3,16 @@ package lzy.utils;
 import org.apache.log4j.Logger;
 
 import java.security.SecureRandom;
+import java.util.Random;
 
 /**
- * 使用场景：需要随机数不重复时使用
- * Twitter的分布式自增ID算法snowflake (Java版)
- * @author zhujuan
- * From: https://github.com/twitter/snowflake
- * An object that generates IDs.
- * This is broken into a separate class in case
- * we ever want to support multiple worker threads
- * per process
+ * 各种id生成策略
+ *
  */
 
-public class IdWorker {
+public class IdUtils {
 
-    protected static final Logger LOG = Logger.getLogger(IdWorker.class);
+    protected static final Logger LOG = Logger.getLogger(IdUtils.class);
 
     private long workerId;
     private long datacenterId;
@@ -38,27 +33,29 @@ public class IdWorker {
 
     private long lastTimestamp = -1L;
 
-    private static IdWorker idWorker;
-    public static IdWorker getInstance() {
-        if (idWorker == null){
-            idWorker = new IdWorker();
+    private static IdUtils idUtils;
+    public static IdUtils getInstance() {
+        if (idUtils == null){
+            idUtils = new IdUtils();
         }
-        return idWorker;
+        return idUtils;
     }
+
+
 
     private static SecureRandom random = new SecureRandom();
 
     public static long getId(){
-        return  IdWorker.getInstance().nextId();
+        return  IdUtils.getInstance().nextId();
     }
-    public IdWorker() {
+    public IdUtils() {
 
         this.workerId = 0;
         this.datacenterId = 0;
         System.out.println(String.format("worker starting. timestamp left shift %d, datacenter id bits %d, worker id bits %d, sequence bits %d, workerid %d", timestampLeftShift, datacenterIdBits, workerIdBits, sequenceBits, workerId));
     }
 
-    public IdWorker(long workerId, long datacenterId) {
+    public IdUtils(long workerId, long datacenterId) {
         // sanity check for workerId
         if (workerId > maxWorkerId || workerId < 0) {
             throw new IllegalArgumentException(String.format("worker Id can't be greater than %d or less than 0", maxWorkerId));
@@ -106,4 +103,21 @@ public class IdWorker {
     protected long timeGen() {
         return System.currentTimeMillis();
     }
+
+    /**
+     * 图片名生成
+     */
+    public static String genImageName() {
+        //取当前时间的长整形值包含毫秒
+        long millis = System.currentTimeMillis();
+        //long millis = System.nanoTime();
+        //加上三位随机数
+        Random random = new Random();
+        int end3 = random.nextInt(999);
+        //如果不足三位前面补0
+        String str = millis + String.format("%03d", end3);
+
+        return str;
+    }
+
 }

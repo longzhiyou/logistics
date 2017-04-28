@@ -1,14 +1,11 @@
 package lzy.module.customer.controller;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lzy.common.CommonDefine;
 import lzy.module.customer.domain.CustomerDomain;
 import lzy.module.customer.service.CustomerService;
 import lzy.module.file.storage.StorageService;
-import lzy.utils.JsonUtil;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.json.JsonParser;
+import lzy.utils.JsonUtils;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -58,7 +55,7 @@ public class CustomerController {
 //            ,@RequestParam("files") MultipartFile[] uploadFiles
     ) {
 
-        CustomerDomain customerDomain = JsonUtil.json2JavaBean(jsonStr, CustomerDomain.class);
+        CustomerDomain customerDomain = JsonUtils.json2JavaBean(jsonStr, CustomerDomain.class);
 
         if (avatar!=null) {
             storageService.store(avatar);

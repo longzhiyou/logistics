@@ -99,11 +99,11 @@ public class ApplicationTest {
 //    public void createPerson() throws Exception {
 //
 ////        Party party = new Party();
-////        party.setPartyId(IdWorker.getId());
+////        party.setPartyId(IdUtils.getId());
 ////        Party party1 = partyRepository.save(party);
 ////        assertNotNull(party1);
 //        Person person = new Person();
-////        person.setPartyId(IdWorker.getId());
+////        person.setPartyId(IdUtils.getId());
 //        person.setCurrentName("lzy-new");
 //        Person save = personRepository.save(person);
 //        assertNotNull(save);

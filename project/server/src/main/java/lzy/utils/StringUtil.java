@@ -442,7 +442,7 @@ public class StringUtil {
 	 * @return 20位 随机数
 	 */
 	public static String getRandNo(int n) {
-		String randNo = DateUtil.toString(new Date(), "yyyyMMddHHmmssSSS") + StringUtil.getRandStr(n);
+		String randNo = DateUtils.toString(new Date(), "yyyyMMddHHmmssSSS") + StringUtil.getRandStr(n);
 		return randNo;
 	}
 	

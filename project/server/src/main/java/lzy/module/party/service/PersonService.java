@@ -4,7 +4,7 @@ import lzy.module.party.entity.Party;
 import lzy.module.party.entity.Person;
 import lzy.module.party.repository.PartyRepository;
 import lzy.module.party.repository.PersonRepository;
-import lzy.utils.IdWorker;
+import lzy.utils.IdUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,7 +35,7 @@ public class PersonService {
          */
 
         Party party = new Party();
-        party.setPartyId(IdWorker.getId());
+        party.setPartyId(IdUtils.getId());
         Party party1 = partyRepository.save(party);
         person.setPartyId(party1.getPartyId());
         return personRepository.save(person);

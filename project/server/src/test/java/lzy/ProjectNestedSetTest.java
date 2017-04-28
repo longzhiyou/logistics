@@ -3,18 +3,7 @@ package lzy;
 
 import lzy.demo.Project;
 import lzy.demo.ProjectRepositoryNestedSet;
-import lzy.module.auth.domain.UserEntity;
-import lzy.module.auth.repository.UserRepository;
-import lzy.module.customer.domain.CustomerDomain;
-import lzy.module.customer.service.CustomerService;
-import lzy.module.party.entity.PartyRoleType;
-import lzy.module.party.entity.Person;
-import lzy.module.party.repository.PartyRepository;
-import lzy.module.party.repository.PartyRoleTypeRepository;
-import lzy.module.party.repository.RoleTypeRepository;
-import lzy.module.party.service.PersonService;
-import lzy.utils.IdWorker;
-import lzy.utils.LicenseGenerator;
+import lzy.utils.IdUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -57,7 +46,7 @@ public class ProjectNestedSetTest {
 //
 //        Project node = new Project();
 //        node.setName("horse");
-//        node.setId(IdWorker.getId());
+//        node.setId(IdUtils.getId());
 //        node.setParentId(parent.getId());
 //        node.setLft(rgt);
 //        node.setRgt(rgt+1);
@@ -79,7 +68,7 @@ public class ProjectNestedSetTest {
          * [2017-04-27 add by longzhiyou]
          */
         Project root = new Project();
-        root.setId(IdWorker.getId());
+        root.setId(IdUtils.getId());
         root.setName("root");
         root.setLft(1);
         root.setRgt(2);
