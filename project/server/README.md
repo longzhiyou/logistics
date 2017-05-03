@@ -92,6 +92,7 @@
     - [JpaTreeDao](http://members.chello.at/fritz.ritzberger/downloads/jpatreedao/JpaTreeDao.html)
     - [JPA-NestedSet](https://github.com/romanb/JPA-NestedSet)
     - [Baobaba library applying the nested set model](http://baobab.sideralis.org/)
+    - [Spring BootとSpring Data JPAで検索アプリケーションを開発してCircleCIでビルドする](http://qiita.com/rubytomato@github/items/7551b02abc34054301c0)
 ### 参考
 1. [RESTful API 设计指南](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)
 1.  [Rails 路由全解](http://guides.ruby-china.org/routing.html)

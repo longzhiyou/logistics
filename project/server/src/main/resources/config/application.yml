@@ -21,6 +21,13 @@ server:
 
 #mysql
 spring:
+  devtools:
+      restart:
+        enabled: true
+        additional-exclude:
+          - "**/*.yml, **/*.xml"
+          - src/main/resources/sql
+
   output:
     ansi:
       enabled: detect
@@ -57,6 +64,19 @@ mybatis:
     defaultFetchSize: 100
     defaultStatementTimeout: 30
 
+logging:
+    level:
+        org:
+            hibernate:
+                SQL: DEBUG
+                type:
+                    descriptor:
+                        sql:
+                            BasicBinder: TRACE
+
+cron:
+  cron1: 0 * * * * MON-FRI
+  cron2: 0 */2 * * * *
 
 # JWT
 jwt:
