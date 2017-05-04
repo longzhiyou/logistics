@@ -92,12 +92,23 @@ $panel-heading-font-size: 16px;
     background-color: $primary-bg;
     border-color: $primary-bg;
   }
+  &.panel-colorful {
+    background-color: $primary-bg;
+    border-color: $primary-bg;
+    color: $default-text;
+  }
+
 }
 
 .panel-success {
   > .panel-heading {
     background-color: $success-bg;
     border-color: $success-bg;
+  }
+  &.panel-colorful {
+    background-color: $success-bg;
+    border-color: $success-bg;
+    color: $default-text;
   }
 }
 
@@ -106,12 +117,22 @@ $panel-heading-font-size: 16px;
     background-color: $info-bg;
     border-color: $info-bg;
   }
+  &.panel-colorful {
+    background-color: $info-bg;
+    border-color: $info-bg;
+    color: $default-text;
+  }
 }
 
 .panel-warning {
   > .panel-heading {
     background-color: $warning-bg;
     border-color: $warning-bg;
+  }
+  &.panel-colorful {
+    background-color: $warning-bg;
+    border-color: $warning-bg;
+    color: $default-text;
   }
 }
 
@@ -120,7 +141,61 @@ $panel-heading-font-size: 16px;
     background-color: $danger-bg;
     border-color: $danger-bg;
   }
+  &.panel-colorful {
+    background-color: $danger-bg;
+    border-color: $danger-bg;
+    color: $default-text;
+  }
 }
+
+.panel-pink {
+  > .panel-heading {
+    background-color: $pink-bg;
+    border-color: $pink-bg;
+  }
+  &.panel-colorful {
+    background-color: $pink-bg;
+    border-color: $pink-bg;
+    color: $default-text;
+  }
+}
+
+.panel-mint {
+  > .panel-heading {
+    background-color: $mint-bg;
+    border-color: $mint-bg;
+  }
+  &.panel-colorful {
+    background-color: $mint-bg;
+    border-color: $mint-bg;
+    color: $default-text;
+  }
+}
+
+.panel-purple {
+  > .panel-heading {
+    background-color: $purple-bg;
+    border-color: $purple-bg;
+  }
+  &.panel-colorful {
+    background-color: $purple-bg;
+    border-color: $purple-bg;
+    color: $default-text;
+  }
+}
+
+.panel-dark {
+  > .panel-heading {
+    background-color: $dark-bg;
+    border-color: $dark-bg;
+  }
+  &.panel-colorful {
+    background-color: $dark-bg;
+    border-color: $dark-bg;
+    color: $default-text;
+  }
+}
+
 
 .bootstrap-panel{
   background-color: $bootstrap-panel-bg;
