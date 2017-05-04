@@ -23,5 +23,9 @@ public interface CustomerRepositoryMybatis {
             "LEFT JOIN person ON person.party_id = customer.party_id")
     List<CustomerDomain> findAll();
 
+//       @Select("SELECT * FROM CITY WHERE state = #{state}")
+//    City findByState(@Param("state") String state);
+
+
 
 }

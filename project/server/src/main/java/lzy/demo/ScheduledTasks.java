@@ -25,23 +25,23 @@ public class ScheduledTasks {
     private static final Logger log = LoggerFactory.getLogger(ScheduledTasks.class);
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
-    @Scheduled(fixedRate = 5000)
-    public void reportCurrentTime() {
-        log.info("doRate {}", dateFormat.format(new Date()));
-    }
-
-    @Scheduled(fixedDelay = 5000)
-    public void doDelay() {
-        log.info("doDelay {}", dateFormat.format(new Date()));
-    }
-
-    @Scheduled(cron = "0 * * * * *", zone = "Asia/Tokyo")
-    public void doCron() {
-        log.info("doCron {}", dateFormat.format(new Date()));
-    }
-
-    @Scheduled(cron = "${cron.cron1}")
-    public void doCronSetting() {
-        log.info("doCronSetting {}", dateFormat.format(new Date()));
-    }
+//    @Scheduled(fixedRate = 5000)
+//    public void reportCurrentTime() {
+//        log.info("doRate {}", dateFormat.format(new Date()));
+//    }
+//
+//    @Scheduled(fixedDelay = 5000)
+//    public void doDelay() {
+//        log.info("doDelay {}", dateFormat.format(new Date()));
+//    }
+//
+//    @Scheduled(cron = "0 * * * * *", zone = "Asia/Tokyo")
+//    public void doCron() {
+//        log.info("doCron {}", dateFormat.format(new Date()));
+//    }
+//
+//    @Scheduled(cron = "${cron.cron1}")
+//    public void doCronSetting() {
+//        log.info("doCronSetting {}", dateFormat.format(new Date()));
+//    }
 }
