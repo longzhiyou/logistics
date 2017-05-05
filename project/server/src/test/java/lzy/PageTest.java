@@ -1,0 +1,86 @@
+package lzy;
+
+
+import com.github.pagehelper.PageInfo;
+import lzy.module.auth.domain.UserEntity;
+import lzy.module.auth.repository.UserRepository;
+import lzy.module.customer.domain.CustomerDomain;
+import lzy.module.customer.service.CustomerService;
+import lzy.module.party.repository.PartyRepository;
+import lzy.module.party.repository.PartyRoleTypeRepository;
+import lzy.module.party.repository.RoleTypeRepository;
+import lzy.module.party.service.PersonService;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.List;
+
+import static org.junit.Assert.assertNotNull;
+
+//@AutoConfigureMockMvc
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class PageTest {
+
+    private static final Logger logger = LoggerFactory.getLogger(PageTest.class);
+
+
+    @Autowired
+    UserRepository userRepository;
+
+    @Autowired
+    PersonService personService;
+
+
+    @Autowired
+    PartyRepository partyRepository;
+
+    @Autowired
+    RoleTypeRepository roleTypeRepository;
+
+    @Autowired
+    PartyRoleTypeRepository partyRoleTypeRepository;
+
+    @Autowired
+    CustomerService customerService;
+
+
+    @Test
+    public void findCustomer() throws Exception {
+
+
+        PageInfo customers = customerService.getCustomers();
+        assertNotNull(customers);
+
+        logger.info(customers.toString());
+
+    }
+
+    @Test
+    public void findUser() throws Exception {
+
+
+        Sort sort =  new Sort(Sort.Direction.ASC,"username");
+
+
+//        Pageable pageable = new PageRequest(1,10,sort);
+        Page<UserEntity> users = userRepository.findAll(new PageRequest(0, 20));
+//        Page<UserEntity> all = userRepository.findAll(pageable);
+
+//        Iterable<UserEntity> all = userRepository.findAll();
+//
+        assertNotNull(users);
+//
+//        logger.info(all.toString());
+
+    }
+
+} 
