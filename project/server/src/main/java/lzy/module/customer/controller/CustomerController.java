@@ -35,7 +35,7 @@ public class CustomerController {
     @RequestMapping(method= RequestMethod.GET)
     public PageInfo index(Pageable pageable) {
 
-        return customerService.getCustomers();
+        return customerService.getCustomers(pageable);
 
     }
 

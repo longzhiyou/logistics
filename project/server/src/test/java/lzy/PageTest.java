@@ -57,7 +57,7 @@ public class PageTest {
     public void findCustomer() throws Exception {
 
 
-        PageInfo customers = customerService.getCustomers();
+        PageInfo customers = customerService.getCustomers(new PageRequest(0, 20));
         assertNotNull(customers);
 
         logger.info(customers.toString());

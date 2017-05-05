@@ -3,6 +3,8 @@ package lzy.module.customer.service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.github.pagehelper.StringUtil;
+import com.xiaoleilu.hutool.util.StrUtil;
 import lzy.module.customer.domain.CustomerDomain;
 import lzy.module.customer.repository.CustomerRepositoryMybatis;
 import lzy.module.party.entity.Customer;
@@ -15,6 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -77,9 +80,15 @@ public class CustomerService {
 
     }
 
-    public PageInfo getCustomers(){
+    public PageInfo getCustomers(Pageable pageable){
 
-        PageHelper.startPage(1, 3);
+//        int pageNum =pageable.getPageNumber();
+//        int pageSize = pageable.getPageSize();
+        PageHelper.startPage(pageable.getPageNumber(), pageable.getPageSize());
+        String s = pageable.getSort().toString();
+
+        String removeAll = StrUtil.removeAll(s, ":");
+        PageHelper.orderBy(removeAll);
 //        customerRepositoryMybatis.findAll();
 
 //        logger.info("获取所有Doctor信息，获得记录数：{}", page.size());

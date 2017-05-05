@@ -19,6 +19,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
@@ -204,7 +205,7 @@ public class ApplicationTest {
     @Rollback(false)
     public void findCustomer() throws Exception {
 
-        PageInfo customers = customerService.getCustomers();
+        PageInfo customers = customerService.getCustomers(new PageRequest(0, 20));
         assertNotNull(customers);
 
         logger.info(customers.toString());
