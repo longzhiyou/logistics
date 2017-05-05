@@ -18,7 +18,6 @@ import javax.persistence.*;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper=true)
 @Entity
-//@Table(name = "user",indexes = { @Index(name = "IDX_USER", columnList = "id,username") })
 @Table(name = "user")
 public class UserEntity extends BaseEntity {
     @Id
@@ -33,5 +32,8 @@ public class UserEntity extends BaseEntity {
     private String password;
 
     private Boolean enabled;
+
+    private String license;
+
 
 }

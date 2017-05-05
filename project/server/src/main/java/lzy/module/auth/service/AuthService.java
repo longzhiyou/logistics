@@ -61,6 +61,7 @@ public class AuthService {
       userEntity.setEnabled(true);
       userEntity.setUsername(user.getUsername());
       userEntity.setPassword(StringUtil.sha256Encrypt(user.getPassword()));
+      userEntity.setLicense(user.getLicense());
       UserEntity save = userRepository.save(userEntity);
 
       UserInfo info = new UserInfo();

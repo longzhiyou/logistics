@@ -5,6 +5,7 @@ import lzy.common.exception.UnauthorizedException;
 import lzy.module.auth.domain.UserEntity;
 import lzy.module.auth.domain.UserInfo;
 import lzy.module.auth.service.AuthService;
+import lzy.utils.LicenseGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -37,6 +38,11 @@ public class CustomUserDetailsService implements UserDetailsService {
         if (null==userEntity) {
             return null;
 //            throw new UnauthorizedException(String.format("没有发现用户 '%s'.", username));
+        }
+
+        //验证序列号
+        if (!LicenseGenerator.matches(userEntity.getLicense())){
+            return null;
         }
 
         UserInfo user = new UserInfo();
