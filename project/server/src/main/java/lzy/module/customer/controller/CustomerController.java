@@ -1,5 +1,7 @@
 package lzy.module.customer.controller;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
 import lombok.AllArgsConstructor;
 import lzy.common.CommonDefine;
 import lzy.module.customer.domain.CustomerDomain;
@@ -31,7 +33,7 @@ public class CustomerController {
 
 
     @RequestMapping(method= RequestMethod.GET)
-    public List<CustomerDomain> index(Pageable pageable) {
+    public PageInfo index(Pageable pageable) {
 
         return customerService.getCustomers();
 

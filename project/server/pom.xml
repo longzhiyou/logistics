@@ -161,7 +161,7 @@
                 <configuration>
 
                     <!--设置true则不能用解压文件打开-->
-                    <executable>false</executable>
+                    <executable>true</executable>
                 </configuration>
             </plugin>
 

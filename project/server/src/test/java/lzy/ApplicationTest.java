@@ -1,6 +1,7 @@
 package lzy;
 
 
+import com.github.pagehelper.PageInfo;
 import lzy.module.auth.domain.UserEntity;
 import lzy.module.auth.repository.UserRepository;
 import lzy.module.customer.domain.CustomerDomain;
@@ -203,7 +204,7 @@ public class ApplicationTest {
     @Rollback(false)
     public void findCustomer() throws Exception {
 
-        List<CustomerDomain> customers = customerService.getCustomers();
+        PageInfo customers = customerService.getCustomers();
         assertNotNull(customers);
 
         logger.info(customers.toString());

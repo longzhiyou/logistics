@@ -1,5 +1,8 @@
 package lzy.module.customer.service;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import lzy.module.customer.domain.CustomerDomain;
 import lzy.module.customer.repository.CustomerRepositoryMybatis;
 import lzy.module.party.entity.Customer;
@@ -8,6 +11,8 @@ import lzy.module.party.entity.RoleTypeDefine;
 import lzy.module.party.repository.CustomerRepository;
 import lzy.module.party.repository.RoleTypeRepository;
 import lzy.module.party.service.PersonService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +28,7 @@ import java.util.List;
 @Service
 public class CustomerService {
 
+    private static final Logger logger = LoggerFactory.getLogger(CustomerService.class);
 
     @Autowired
     PersonService personService;
@@ -71,9 +77,19 @@ public class CustomerService {
 
     }
 
-    public List<CustomerDomain> getCustomers(){
+    public PageInfo getCustomers(){
 
-        return customerRepositoryMybatis.findAll();
+        PageHelper.startPage(1, 3);
+//        customerRepositoryMybatis.findAll();
+
+//        logger.info("获取所有Doctor信息，获得记录数：{}", page.size());
+//        logger.info("获取所有Doctor信息，获得记录：{}", page);
+
+//        String s = page.toString();
+
+        PageInfo pageInfo = new PageInfo(customerRepositoryMybatis.findAll());
+
+        return pageInfo;
     }
 
 }
