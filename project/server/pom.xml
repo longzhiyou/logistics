@@ -147,11 +147,7 @@
             <artifactId>hutool-all</artifactId>
             <version>3.0.3</version>
         </dependency>
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-transport</artifactId>
-            <version>4.0.27.Final</version>
-        </dependency>
+
 
     </dependencies>
 
@@ -170,9 +166,8 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
 
                 <configuration>
-
                     <!--设置true则不能用解压文件打开-->
-                    <executable>false</executable>
+                    <executable>true</executable>
                 </configuration>
             </plugin>
 
