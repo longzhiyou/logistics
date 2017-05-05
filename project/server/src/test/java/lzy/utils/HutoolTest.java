@@ -8,6 +8,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 
+/**
+ * http://hutool.mydoc.io/?t=184631
+ * [2017-05-05 add by longzhiyou]
+ */
 @SpringBootTest
 public class HutoolTest {
 
