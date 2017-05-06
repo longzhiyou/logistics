@@ -78,7 +78,10 @@
     "datatables.net-rowgroup-bs": "^1.0.0",
     "datatables.net-rowreorder": "^1.2.0",
     "angular-datatables": "^2.3.0",
-    "w5c-validator": "angular-w5c-validator#^2.4.25"
+    "w5c-validator": "angular-w5c-validator#^2.4.25",
+    "sockjs-client": "^1.1.4",
+    "angular-sockjs": "^0.1.0",
+    "stomp-websocket": "^2.3.4"
   },
   "resolutions": {
     "angular": "~1.6.4",

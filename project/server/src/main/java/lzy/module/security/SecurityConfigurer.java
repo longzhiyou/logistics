@@ -52,6 +52,13 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
 
+//        httpSecurity
+//                .headers()
+//                .frameOptions()
+//                .sameOrigin()
+//                .and()
+//                .authorizeRequests();
+
         httpSecurity.csrf().disable();
         httpSecurity.exceptionHandling().authenticationEntryPoint(customAuthenticationEntryPoint)
                 .and()
@@ -77,7 +84,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                 ).permitAll()
 //                .antMatchers(HttpMethod.POST, "/api/auth/login").permitAll()
 //                .antMatchers(HttpMethod.POST, "/api/auth/register").permitAll()
-                .antMatchers("/api/auth/**").permitAll()
+                .antMatchers("/api/auth/**","/websocket/**","/app/**").permitAll()
 //                .antMatchers(HttpMethod.POST, "/**").permitAll() //debug 时, 不用对 Authorization 作验证
 //                .antMatchers(HttpMethod.OPTIONS).permitAll()
                 .anyRequest().authenticated()

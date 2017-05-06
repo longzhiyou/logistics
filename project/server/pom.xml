@@ -41,6 +41,12 @@
 
 
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
+        </dependency>
+
+
+        <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
             <version>0.7.0</version>
@@ -147,6 +153,19 @@
             <artifactId>hutool-all</artifactId>
             <version>3.0.3</version>
         </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.9.Final</version>
+        </dependency>
+
+        <!--<dependency>-->
+        <!--<groupId>com.corundumstudio.socketio</groupId>-->
+        <!--<artifactId>netty-socketio</artifactId>-->
+        <!--<version>1.7.12</version>-->
+        <!--</dependency>-->
+
 
     </dependencies>
 

@@ -11,6 +11,35 @@
   /** @ngInject */
   function TrafficChartCtrl($scope, baConfig, colorHelper) {
 
+      $scope.initSocket=initSocket;
+      $scope.sendMessage=sendMessage;
+
+      $scope.recMsg = "recMsg";
+      $scope.sendMsg = "sendMsg";
+      function initSocket(){
+          connect();
+      }
+
+      function connect() {
+          var socket = new SockJS('http://localhost:9002/websocket');
+          $scope.stompClient = Stomp.over(socket);
+          $scope.stompClient.connect({}, function (frame) {
+              console.log('Connected: ' + frame);
+              $scope.stompClient.subscribe('/topic/greetings', function (greeting) {
+
+                  showGreeting(JSON.parse(greeting.body).content);
+              });
+          });
+      }
+
+      function showGreeting(message) {
+          $scope.recMsg = message;
+      }
+
+      function sendMessage() {
+          $scope.stompClient.send("/app/hello", {}, JSON.stringify({'name':  $scope.sendMsg}));
+      }
+
       $scope.transparent = baConfig.theme.blur;
       var dashboardColors = baConfig.colors.dashboard;
       $scope.doughnutData = {

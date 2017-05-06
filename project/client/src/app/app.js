@@ -14,6 +14,7 @@ angular.module('BlurAdmin', [
   'angular-progress-button-styles',
   'angular-jwt',
   'restangular',
+  //'bd.sockjs',
   'datatables',
   'datatables.buttons',
   //'datatables.bootstrap',
@@ -22,19 +23,40 @@ angular.module('BlurAdmin', [
   'BlurAdmin.pages'
 ]);
 
+//angular.module('BlurAdmin')
+//    .factory('mySocket', function (socketFactory) {
+//
+//        var sockjs = new SockJS('http://localhost:9002/websocket');
+//
+//        return socketFactory({
+//            socket: sockjs
+//        });
+//
+//
+//        //return socketFactory({
+//        //    url: 'http://localhost:9002/gs-guide-websocket'
+//        //});
+//        //return socketFactory();
+//    });
+
 angular.module('BlurAdmin')
     .constant('defaultOptionsDom'
         ,'<"row"<"col-xs-9 col-md-9"B><"col-xs-3 col-md-3"f>>rt<"row"<"col-md-3"l><"col-md-6"p><"col-md-3"i>>');
 
+
 angular.module('BlurAdmin')
     .config(config).run(appRun);
 
+
 /** @ngInject */
 function config($httpProvider
+                //,socketFactoryProvider
     ,RestangularProvider
     ,jwtOptionsProvider) {
 
     //console.info("app config");
+    //socketFactoryProvider.prefix('app');
+
     RestangularProvider.setBaseUrl('http://localhost:9002/api');
     //RestangularProvider.setDefaultHttpFields({cache: true});
 
