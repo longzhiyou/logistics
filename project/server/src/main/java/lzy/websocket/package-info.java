@@ -1,5 +1,6 @@
 /**
  * 参考网站:
+ *  [WebSocket 是什么原理？为什么可以实现持久连接？](https://www.zhihu.com/question/20215561)
  *  WebSocket与STOMP介绍 http://blog.csdn.net/HelloXiaoYueYue/article/details/51006069
  *  [Spring websocket over STOMP使用指南](http://blog.csdn.net/helloxiaoyueyue/article/details/50999525)
  *  [看完让你彻底搞懂Websocket原理](http://www.cnblogs.com/fuqiang88/p/5956363.html)
