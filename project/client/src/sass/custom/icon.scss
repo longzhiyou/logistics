@@ -1,3 +1,46 @@
+.icon-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  line-height: 1;
+  font-size: 0
+}
+
+.icon-list>li {
+  position: relative;
+  display: inline-block;
+  margin-left: 5px;
+  font-size: 13px
+}
+
+.icon-list>li:first-child {
+  margin-left: 0
+}
+
+.icon-list>li>a {
+  color: inherit;
+  display: block;
+  opacity: 1
+}
+
+.icon-list>li>a:focus,
+.icon-list>li>a:hover {
+  opacity: .75
+}
+
+.icon-list>li>a>i {
+  top: 0
+}
+
+.icon-list>li>a>.caret {
+  margin-top: 0;
+  margin-bottom: 0
+}
+
+.icon-list-extended>li {
+  margin-left: 10px
+}
+
 
 .icon-wrap {
   display: inline-block;
