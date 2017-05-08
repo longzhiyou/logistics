@@ -1,7 +1,7 @@
 package lzy.module.security;
 
 
-import lzy.utils.StringUtil;
+import com.xiaoleilu.hutool.crypto.SecureUtil;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
@@ -17,7 +17,7 @@ public class CustomUserPasswordEncoder implements PasswordEncoder {
 
     @Override
     public boolean matches(CharSequence charSequence, String s) {
-        boolean equals = StringUtil.sha256Encrypt(charSequence.toString()).equals(s);
+        boolean equals = SecureUtil.sha1(charSequence.toString()).equals(s);
         return equals;
     }
 }

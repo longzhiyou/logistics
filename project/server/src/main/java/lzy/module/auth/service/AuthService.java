@@ -6,14 +6,13 @@ import lzy.module.auth.domain.UserEntity;
 import lzy.module.auth.domain.UserInfo;
 import lzy.module.auth.repository.UserRepository;
 import lzy.utils.LicenseGenerator;
-import lzy.utils.StringUtil;
-import org.apache.ibatis.scripting.xmltags.IfSqlNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -60,7 +59,8 @@ public class AuthService {
       UserEntity userEntity = new UserEntity();
       userEntity.setEnabled(true);
       userEntity.setUsername(user.getUsername());
-      userEntity.setPassword(StringUtil.sha256Encrypt(user.getPassword()));
+      BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+      userEntity.setPassword(passwordEncoder.encode(user.getPassword()));
       UserEntity save = userRepository.save(userEntity);
 
       UserInfo info = new UserInfo();

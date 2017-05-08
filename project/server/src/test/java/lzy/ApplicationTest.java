@@ -245,8 +245,8 @@ public class ApplicationTest {
 
     public void testLicenseGenerator()  {
         //5f944592c74518d249bb3e5d58b884c8a2bcca5c7b58cc91e7a64b634ebfc015
-        String license = LicenseGenerator.getLicense();
-        logger.info(license);
+//        String license = LicenseGenerator.getLicense();
+//        logger.info(license);
 
     }
 

@@ -32,8 +32,8 @@ public void testGetCPUSerial() throws Exception {
     String serial = LicenseGenerator.getCPUSerial();
     System.out.println("serial" + ": " + serial);
 
-    String license = LicenseGenerator.getLicense();
-    System.out.println("license" + ": " + license);
+//    String license = LicenseGenerator.getLicense();
+//    System.out.println("license" + ": " + license);
 
 } 
 

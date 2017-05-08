@@ -1,5 +1,9 @@
 package lzy.utils;
 
+import com.xiaoleilu.hutool.crypto.SecureUtil;
+import com.xiaoleilu.hutool.crypto.asymmetric.KeyType;
+import com.xiaoleilu.hutool.crypto.asymmetric.RSA;
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -9,6 +13,7 @@ import java.util.Scanner;
  */
 public class LicenseGenerator {
 
+    public static final String publicKeyBase64 = "";
     /**
      * 获取系统cpu序列号
      * wmic cpu get ProcessorId 命令获取
@@ -28,15 +33,26 @@ public class LicenseGenerator {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return serial;
+//        增加一层
+        return SecureUtil.sha1(serial);
+//        return serial;
     }
 
-    public static String getLicense(){
-       return StringUtil.sha256Encrypt(getCPUSerial());
-    }
+//    public static String getLicense(){
+//       return SecureUtil.sha1(getCPUSerial());
+//    }
 
     public static  boolean matches(String license) {
-        boolean equals = StringUtil.sha256Encrypt(getCPUSerial()).equals(license);
+
+        /**
+         *  用rsa的公钥进行解密
+         * [2017-05-08 add by longzhiyou]
+         */
+        //客户端用公钥解密
+        RSA rsaPublic = new RSA(null,publicKeyBase64);
+
+        String decryptStr = rsaPublic.decryptStr(license, KeyType.PublicKey);
+        boolean equals = getCPUSerial().equals(license);
         return equals;
     }
 
