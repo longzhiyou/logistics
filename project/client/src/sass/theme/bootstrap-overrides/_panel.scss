@@ -95,7 +95,7 @@ $panel-heading-font-size: 16px;
   &.panel-colorful {
     background-color: $primary-bg;
     border-color: $primary-bg;
-    color: $default-text;
+    color: $label-text;
   }
 
 }
@@ -107,8 +107,8 @@ $panel-heading-font-size: 16px;
   }
   &.panel-colorful {
     background-color: $success-bg;
-    border-color: $success-bg;
-    color: $default-text;
+    //border-color: $success-bg;
+    color: $label-text;
   }
 }
 
@@ -120,7 +120,7 @@ $panel-heading-font-size: 16px;
   &.panel-colorful {
     background-color: $info-bg;
     border-color: $info-bg;
-    color: $default-text;
+    color: $label-text;
   }
 }
 
@@ -132,7 +132,7 @@ $panel-heading-font-size: 16px;
   &.panel-colorful {
     background-color: $warning-bg;
     border-color: $warning-bg;
-    color: $default-text;
+    color: $label-text;
   }
 }
 
@@ -144,7 +144,7 @@ $panel-heading-font-size: 16px;
   &.panel-colorful {
     background-color: $danger-bg;
     border-color: $danger-bg;
-    color: $default-text;
+    color: $label-text;
   }
 }
 
@@ -156,7 +156,7 @@ $panel-heading-font-size: 16px;
   &.panel-colorful {
     background-color: $pink-bg;
     border-color: $pink-bg;
-    color: $default-text;
+    color: $label-text;
   }
 }
 
@@ -168,7 +168,7 @@ $panel-heading-font-size: 16px;
   &.panel-colorful {
     background-color: $mint-bg;
     border-color: $mint-bg;
-    color: $default-text;
+    color: $label-text;
   }
 }
 
@@ -180,7 +180,7 @@ $panel-heading-font-size: 16px;
   &.panel-colorful {
     background-color: $purple-bg;
     border-color: $purple-bg;
-    color: $default-text;
+    color: $label-text;
   }
 }
 
@@ -192,7 +192,7 @@ $panel-heading-font-size: 16px;
   &.panel-colorful {
     background-color: $dark-bg;
     border-color: $dark-bg;
-    color: $default-text;
+    color: $label-text;
   }
 }
 
@@ -209,7 +209,11 @@ $panel-heading-font-size: 16px;
   &.panel-success,
   &.panel-info,
   &.panel-warning,
-  &.panel-danger {
+  &.panel-danger,
+  &.panel-pink,
+  &.panel-mint,
+  &.panel-purple,
+  &.panel-dark{
     .panel-heading {
       p, div, span {
         color: rgba(255, 255, 255, 0.8);
