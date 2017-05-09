@@ -1,7 +1,7 @@
 package lzy;
 
 import lzy.common.domain.CustomJpaRepositoryFactoryBean;
-import lzy.module.file.storage.StorageProperties;
+import lzy.sys.file.storage.StorageProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

@@ -1,18 +1,16 @@
 package lzy.module.customer.service;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.github.pagehelper.StringUtil;
 import com.xiaoleilu.hutool.util.StrUtil;
 import lzy.module.customer.domain.CustomerDomain;
 import lzy.module.customer.repository.CustomerRepositoryMybatis;
-import lzy.module.party.entity.Customer;
-import lzy.module.party.entity.Person;
+import lzy.module.customer.entity.Customer;
+import lzy.module.party.person.entity.Person;
 import lzy.module.party.entity.RoleTypeDefine;
-import lzy.module.party.repository.CustomerRepository;
+import lzy.module.customer.repository.CustomerRepository;
 import lzy.module.party.repository.RoleTypeRepository;
-import lzy.module.party.service.PersonService;
+import lzy.module.party.person.service.PersonService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -20,8 +18,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 /**
  * User: longzhiyou

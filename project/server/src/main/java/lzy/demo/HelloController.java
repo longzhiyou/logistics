@@ -1,7 +1,7 @@
 package lzy.demo;
 
-import lzy.module.auth.domain.UserEntity;
-import lzy.module.auth.repository.UserRepository;
+import lzy.sys.auth.domain.UserEntity;
+import lzy.sys.auth.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

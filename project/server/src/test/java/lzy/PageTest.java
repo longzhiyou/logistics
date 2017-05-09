@@ -2,14 +2,13 @@ package lzy;
 
 
 import com.github.pagehelper.PageInfo;
-import lzy.module.auth.domain.UserEntity;
-import lzy.module.auth.repository.UserRepository;
-import lzy.module.customer.domain.CustomerDomain;
+import lzy.sys.auth.domain.UserEntity;
+import lzy.sys.auth.repository.UserRepository;
 import lzy.module.customer.service.CustomerService;
 import lzy.module.party.repository.PartyRepository;
 import lzy.module.party.repository.PartyRoleTypeRepository;
 import lzy.module.party.repository.RoleTypeRepository;
-import lzy.module.party.service.PersonService;
+import lzy.module.party.person.service.PersonService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -20,8 +19,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.List;
 
 import static org.junit.Assert.assertNotNull;
 

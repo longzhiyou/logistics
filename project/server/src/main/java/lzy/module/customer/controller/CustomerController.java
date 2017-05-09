@@ -1,18 +1,15 @@
 package lzy.module.customer.controller;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import lombok.AllArgsConstructor;
 import lzy.common.CommonDefine;
 import lzy.module.customer.domain.CustomerDomain;
 import lzy.module.customer.service.CustomerService;
-import lzy.module.file.storage.StorageService;
+import lzy.sys.file.storage.StorageService;
 import lzy.utils.JsonUtils;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.util.List;
 
 /**
  * User: longzhiyou
