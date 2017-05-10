@@ -36,8 +36,8 @@ public class PersonService {
 
         Party party = new Party();
         party.setPartyId(IdUtils.getId());
-        Party party1 = partyRepository.save(party);
-        person.setPartyId(party1.getPartyId());
+//        Party party1 = partyRepository.save(party);
+        person.setPartyId(party.getPartyId());
         return personRepository.save(person);
 
 

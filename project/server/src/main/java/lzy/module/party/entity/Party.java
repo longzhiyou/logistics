@@ -4,6 +4,8 @@ import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 
 /**
@@ -13,11 +15,18 @@ import javax.persistence.Id;
  */
 
 
-@Data
+//@Data
 @Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Party {
     @Id
     private Long partyId;
 
+    public Long getPartyId() {
+        return partyId;
+    }
 
+    public void setPartyId(Long partyId) {
+        this.partyId = partyId;
+    }
 }

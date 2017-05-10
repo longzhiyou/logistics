@@ -1,6 +1,7 @@
 package lzy.module.party.person.entity;
 
 import lombok.Data;
+import lzy.module.party.entity.Party;
 
 import javax.persistence.*;
 
@@ -14,9 +15,9 @@ import javax.persistence.*;
 
 @Data
 @Entity
-public class Person  {
-    @Id
-    private Long partyId;
+public class Person extends Party {
+//    @Id
+//    private Long partyId;
     private String name;
 
 
