@@ -3,42 +3,12 @@
 
     <persistence-unit name="persistenceUnit">
         <class>lzy.module.customer.entity.Customer</class>
-        <class>lzy.module.party.entity.CustomerRelationship</class>
         <class>lzy.module.party.entity.PartyRole</class>
         <class>lzy.module.party.entity.PartyRoleType</class>
-        <class>lzy.module.party.entity.PartySkill</class>
         <class>lzy.module.party.entity.PartyType</class>
-        <class>lzy.module.party.entity.PersonClassification</class>
         <class>lzy.module.party.person.entity.PersonRole</class>
-        <class>lzy.module.party.entity.PersonTraining</class>
         <class>lzy.module.party.entity.RoleType</class>
-        <class>lzy.module.healthcare.entity.CertificationRequirement</class>
-        <class>lzy.module.healthcare.entity.CertificationStatus</class>
-        <class>lzy.module.healthcare.entity.CertificationStatusType</class>
-        <class>lzy.module.healthcare.entity.CertificationType</class>
-        <class>lzy.module.healthcare.entity.DeliveryOutcome</class>
-        <class>lzy.module.healthcare.entity.Diagnosis</class>
-        <class>lzy.module.healthcare.entity.DiagnosisTreatment</class>
-        <class>lzy.module.healthcare.entity.DiagnosisType</class>
-        <class>lzy.module.healthcare.entity.DmeDelivery</class>
-        <class>lzy.module.healthcare.entity.DrugAdministration</class>
-        <class>lzy.module.healthcare.entity.EpisodeOutcome</class>
-        <class>lzy.module.healthcare.entity.Examination</class>
-        <class>lzy.module.healthcare.entity.HealthCareDelivery</class>
-        <class>lzy.module.healthcare.entity.HealthCareDeliveryAssociati</class>
-        <class>lzy.module.healthcare.entity.HealthCareDeliveryRole</class>
-        <class>lzy.module.healthcare.entity.HealthCareDeliveryRoleType</class>
-        <class>lzy.module.healthcare.entity.HealthCareEpisode</class>
-        <class>lzy.module.healthcare.entity.HealthCareGoodOffering</class>
-        <class>lzy.module.healthcare.entity.HealthCareOffering</class>
-        <class>lzy.module.healthcare.entity.HealthCareServiceOffering</class>
-        <class>lzy.module.healthcare.entity.HealthCareVisit</class>
-        <class>lzy.module.healthcare.entity.IndividualHealthCarePractit</class>
-        <class>lzy.module.healthcare.entity.OutcomeType</class>
-        <class>lzy.module.healthcare.entity.PractitionerDiagnosis</class>
-        <class>lzy.module.healthcare.entity.ProcedureDelivery</class>
-        <class>lzy.module.healthcare.entity.StatusType</class>
-        <class>lzy.module.healthcare.entity.SupplyAdministration</class>
+
         <properties>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>

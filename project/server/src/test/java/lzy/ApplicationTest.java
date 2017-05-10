@@ -183,19 +183,7 @@ public class ApplicationTest {
     }
 
 
-    @Test
-    @Transactional
-    @Rollback(false)
-    public void testPerson() throws Exception {
 
-        Person person = new Person();
-        person.setName("lzy");
-        Person newPerson = personService.create(person);
-        assertNotNull(newPerson);
-        logger.info(newPerson.toString());
-
-
-    }
 
     @Test
     @Transactional
@@ -222,10 +210,10 @@ public class ApplicationTest {
          * [2017-04-10 add by longzhiyou]
          */
 
-        for (int i=100;i<150;i++){
+        for (int i=1;i<3;i++){
 
             CustomerDomain customerDomain = new CustomerDomain();
-            customerDomain.setName(String.format("lzy-%d",i));
+            customerDomain.setName(String.format("lzy-%d",i+100));
             customerDomain.setCreditCard(String.format("CreditCard-%d",i));
             customerDomain = customerService.create(customerDomain);
             assertNotNull(customerDomain);
