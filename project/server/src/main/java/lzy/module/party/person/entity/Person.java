@@ -16,7 +16,9 @@ import javax.persistence.*;
 @Data
 @Entity
 public class Person extends Party {
-//    @Id
+
+
+    //    @Id
 //    private Long partyId;
     private String name;
 

@@ -1,11 +1,10 @@
 package lzy.module.party.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.*;
+import java.io.Serializable;
 
 
 /**
@@ -15,18 +14,12 @@ import javax.persistence.InheritanceType;
  */
 
 
-//@Data
+@Data
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Party {
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Party   {
     @Id
+//    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long partyId;
 
-    public Long getPartyId() {
-        return partyId;
-    }
-
-    public void setPartyId(Long partyId) {
-        this.partyId = partyId;
-    }
 }
