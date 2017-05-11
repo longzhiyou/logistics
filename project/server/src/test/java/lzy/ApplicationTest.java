@@ -196,35 +196,6 @@ public class ApplicationTest {
         logger.info(customers.toString());
 
     }
-    @Test
-    @Transactional
-    @Rollback(false)
-    public void testCustomer() throws Exception {
-
-        /**
-         *  增加一个客户的逻辑
-         *  - 创建一个 party
-         *  - 创建一个 person
-         *  - 创建一个 role_type
-         *  - 创建一个 party_role_type
-         * [2017-04-10 add by longzhiyou]
-         */
-
-        for (int i=1;i<3;i++){
-
-            CustomerDomain customerDomain = new CustomerDomain();
-            customerDomain.setName(String.format("lzy-%d",i+100));
-            customerDomain.setCreditCard(String.format("CreditCard-%d",i));
-            customerDomain = customerService.create(customerDomain);
-            assertNotNull(customerDomain);
-
-            logger.info(customerDomain.toString());
-
-        }
-
-
-
-    }
 
     @Test
 

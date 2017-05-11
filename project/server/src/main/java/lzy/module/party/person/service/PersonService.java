@@ -34,10 +34,10 @@ public class PersonService {
          * [2017-04-10 add by longzhiyou]
          */
 
-        Party party = new Party();
-        party.setPartyId(IdUtils.getId());
+//        Party party = new Party();
+//        party.setPartyId(IdUtils.getId());
 //        Party party1 = partyRepository.save(party);
-        person.setPartyId(party.getPartyId());
+        person.setPartyId(IdUtils.getId());
         return personRepository.save(person);
 
 

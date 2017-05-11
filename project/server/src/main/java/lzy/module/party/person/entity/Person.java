@@ -15,6 +15,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Person extends Party {
 
 

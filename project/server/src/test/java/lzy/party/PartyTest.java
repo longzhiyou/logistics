@@ -3,8 +3,10 @@ package lzy.party;
 
 import com.xiaoleilu.hutool.log.Log;
 import com.xiaoleilu.hutool.log.LogFactory;
+import lzy.module.customer.domain.CustomerDomain;
 import lzy.module.customer.service.CustomerService;
 import lzy.module.party.person.entity.Person;
+import lzy.module.party.person.repository.PersonRepository;
 import lzy.module.party.person.service.PersonService;
 import lzy.module.party.repository.PartyRepository;
 import lzy.module.party.repository.PartyRoleTypeRepository;
@@ -41,6 +43,9 @@ public class PartyTest {
     PartyRoleTypeRepository partyRoleTypeRepository;
 
     @Autowired
+    PersonRepository personRepository;
+
+    @Autowired
     CustomerService customerService;
 
     @Test
@@ -53,6 +58,44 @@ public class PartyTest {
         log.info(newPerson.toString());
 
     }
+
+    @Test
+    public void deletePerson() throws Exception {
+
+        personRepository.delete(862493337779699712L);
+
+    }
+
+    @Test
+
+    public void createCustomer() throws Exception {
+
+        /**
+         *  增加一个客户的逻辑
+         *  - 创建一个 party
+         *  - 创建一个 person
+         *  - 创建一个 role_type
+         *  - 创建一个 party_role_type
+         * [2017-04-10 add by longzhiyou]
+         */
+
+        for (int i=0;i<1;i++){
+
+            CustomerDomain customerDomain = new CustomerDomain();
+            customerDomain.setName(String.format("lzy-%d",i+100));
+            customerDomain.setCreditCard(String.format("CreditCard-%d",i));
+            customerDomain = customerService.create(customerDomain);
+            assertNotNull(customerDomain);
+
+            log.info(customerDomain.toString());
+
+        }
+
+
+
+    }
+
+
 
 
 } 
