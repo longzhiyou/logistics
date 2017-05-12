@@ -2,12 +2,7 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
 
     <persistence-unit name="persistenceUnit">
-        <class>lzy.module.customer.entity.Customer</class>
-        <class>lzy.module.party.entity.PartyRole</class>
-        <class>lzy.module.party.entity.PartyRoleType</class>
-        <class>lzy.module.party.entity.PartyType</class>
-        <class>lzy.module.party.person.entity.PersonRole</class>
-        <class>lzy.module.party.entity.RoleType</class>
+
 
         <properties>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306"/>

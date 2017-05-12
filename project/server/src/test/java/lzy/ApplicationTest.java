@@ -1,24 +1,14 @@
 package lzy;
 
 
-import com.github.pagehelper.PageInfo;
 import lzy.sys.auth.domain.UserEntity;
 import lzy.sys.auth.repository.UserRepository;
-import lzy.module.customer.domain.CustomerDomain;
-import lzy.module.customer.service.CustomerService;
-import lzy.module.party.entity.PartyRoleType;
-import lzy.module.party.person.entity.Person;
-import lzy.module.party.repository.PartyRepository;
-import lzy.module.party.repository.PartyRoleTypeRepository;
-import lzy.module.party.repository.RoleTypeRepository;
-import lzy.module.party.person.service.PersonService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
@@ -42,28 +32,12 @@ public class ApplicationTest {
     @Autowired
     UserRepository userRepository;
 
-    @Autowired
-    PersonService personService;
 //
 //    @Autowired
 //    PartyRepository partyRepository;
 //
 //    @Autowired
 //    PersonRepository personRepository;
-
-
-
-    @Autowired
-    PartyRepository partyRepository;
-
-    @Autowired
-    RoleTypeRepository roleTypeRepository;
-
-    @Autowired
-    PartyRoleTypeRepository partyRoleTypeRepository;
-
-    @Autowired
-    CustomerService customerService;
 
 
 
@@ -97,9 +71,9 @@ public class ApplicationTest {
 //    @Rollback(false)
 //    public void createPerson() throws Exception {
 //
-////        Party party = new Party();
+////        PartyBak party = new PartyBak();
 ////        party.setPartyId(IdUtils.getId());
-////        Party party1 = partyRepository.save(party);
+////        PartyBak party1 = partyRepository.save(party);
 ////        assertNotNull(party1);
 //        Person person = new Person();
 ////        person.setPartyId(IdUtils.getId());
@@ -138,12 +112,12 @@ public class ApplicationTest {
 //
 //
 //        // save a couple of books
-//        List<Book> books = new ArrayList<>();
+//        List<Party> books = new ArrayList<>();
 //
 //        bookRepository.save(books);
 //
 //        // fetch all books
-//        for (Book book : bookRepository.findAll()) {
+//        for (Party book : bookRepository.findAll()) {
 //            logger.info(book.toString());
 //        }
 //
@@ -159,52 +133,18 @@ public class ApplicationTest {
 //
 //    }
 
-    @Test
-    @Transactional
-    @Rollback(false)
-    public void testParty() throws Exception {
-
-//        Party party = new Party();
-//        party.setPartyId(10);
-
-//        Party one = partyRepository.findOne(2);
-//        assertNotNull(one);
-//        partyRepository.delete(2);
-
-//        RoleType one = roleTypeRepository.findOne(1);
-//        assertNotNull(one);
-
-        PartyRoleType one = partyRoleTypeRepository.findOne(1);
-        assertNotNull(one);
-
-        logger.info(one.toString());
-
-
-    }
 
 
 
 
-    @Test
-    @Transactional
-    @Rollback(false)
-    public void findCustomer() throws Exception {
-
-        PageInfo customers = customerService.getCustomers(new PageRequest(0, 20));
-        assertNotNull(customers);
-
-        logger.info(customers.toString());
-
-    }
-
-    @Test
-
-    public void testLicenseGenerator()  {
-        //5f944592c74518d249bb3e5d58b884c8a2bcca5c7b58cc91e7a64b634ebfc015
-//        String license = LicenseGenerator.getLicense();
-//        logger.info(license);
-
-    }
+//    @Test
+//
+//    public void testLicenseGenerator()  {
+//        //5f944592c74518d249bb3e5d58b884c8a2bcca5c7b58cc91e7a64b634ebfc015
+////        String license = LicenseGenerator.getLicense();
+////        logger.info(license);
+//
+//    }
 
 
 

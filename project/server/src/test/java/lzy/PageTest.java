@@ -2,13 +2,10 @@ package lzy;
 
 
 import com.github.pagehelper.PageInfo;
+import lzy.module.customer.service.CustomerService;
+import lzy.module.party.person.service.PersonService;
 import lzy.sys.auth.domain.UserEntity;
 import lzy.sys.auth.repository.UserRepository;
-import lzy.module.customer.service.CustomerService;
-import lzy.module.party.repository.PartyRepository;
-import lzy.module.party.repository.PartyRoleTypeRepository;
-import lzy.module.party.repository.RoleTypeRepository;
-import lzy.module.party.person.service.PersonService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -37,14 +34,10 @@ public class PageTest {
     PersonService personService;
 
 
-    @Autowired
-    PartyRepository partyRepository;
+//    @Autowired
+//    PartyRepository partyRepository;
 
-    @Autowired
-    RoleTypeRepository roleTypeRepository;
 
-    @Autowired
-    PartyRoleTypeRepository partyRoleTypeRepository;
 
     @Autowired
     CustomerService customerService;

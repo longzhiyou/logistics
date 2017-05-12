@@ -4,12 +4,11 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.xiaoleilu.hutool.util.StrUtil;
 import lzy.module.customer.domain.CustomerDomain;
-import lzy.module.customer.repository.CustomerRepositoryMybatis;
 import lzy.module.customer.entity.Customer;
-import lzy.module.party.person.entity.Person;
-import lzy.module.party.entity.RoleTypeDefine;
 import lzy.module.customer.repository.CustomerRepository;
-import lzy.module.party.repository.RoleTypeRepository;
+import lzy.module.customer.repository.CustomerRepositoryMybatis;
+import lzy.module.party.entity.RoleTypeDefine;
+import lzy.module.party.person.entity.Person;
 import lzy.module.party.person.service.PersonService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,8 +34,7 @@ public class CustomerService {
     @Autowired
     CustomerRepository customerRepository;
 
-    @Autowired
-    RoleTypeRepository roleTypeRepository;
+
 
     @Autowired
     CustomerRepositoryMybatis customerRepositoryMybatis;

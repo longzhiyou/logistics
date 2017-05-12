@@ -1,8 +1,6 @@
 package lzy.module.party.person.service;
 
-import lzy.module.party.entity.Party;
 import lzy.module.party.person.entity.Person;
-import lzy.module.party.repository.PartyRepository;
 import lzy.module.party.person.repository.PersonRepository;
 import lzy.utils.IdUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +14,9 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 public class PersonService {
-
-    @Autowired
-    PartyRepository partyRepository;
+//
+//    @Autowired
+//    PartyRepository partyRepository;
 
     @Autowired
     PersonRepository personRepository;
@@ -34,9 +32,9 @@ public class PersonService {
          * [2017-04-10 add by longzhiyou]
          */
 
-//        Party party = new Party();
+//        PartyBak party = new PartyBak();
 //        party.setPartyId(IdUtils.getId());
-//        Party party1 = partyRepository.save(party);
+//        PartyBak party1 = partyRepository.save(party);
         person.setPartyId(IdUtils.getId());
         return personRepository.save(person);
 
