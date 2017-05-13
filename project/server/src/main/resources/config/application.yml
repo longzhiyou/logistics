@@ -66,7 +66,7 @@ logging:
             ibatis: DEBUG
         org:
             hibernate:
-                SQL: DEBUG
+#                SQL: DEBUG
                 type:
                     descriptor:
                         sql:

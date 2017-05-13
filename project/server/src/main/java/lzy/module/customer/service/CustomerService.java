@@ -31,8 +31,8 @@ public class CustomerService {
     @Autowired
     PersonService personService;
 
-    @Autowired
-    CustomerRepository customerRepository;
+//    @Autowired
+//    CustomerRepository customerRepository;
 
 
 
@@ -50,24 +50,24 @@ public class CustomerService {
          * [2017-04-10 add by longzhiyou]
          */
 
-
-        Person person = new Person();
-        BeanUtils.copyProperties(customerDomain,person);
-        person = personService.create(person);
-
-//        RoleType roleType = roleTypeRepository.findOne(RoleTypeDefine.CUSTOMER);
-
-        Customer customer = new Customer();
-        BeanUtils.copyProperties(customerDomain,customer);
-//        customer.setPerson(person);
-//        customer.setRoleType(roleType);
-        customer.setCreditCard(customerDomain.getCreditCard());
-
-        customer.setPartyId(person.getPartyId());
-        customer.setRoleTypeId(RoleTypeDefine.CUSTOMER);
-
-        customerRepository.save(customer);
-        customerDomain.setPartyId(person.getPartyId());
+//
+//        Person person = new Person();
+//        BeanUtils.copyProperties(customerDomain,person);
+//        person = personService.create(person);
+//
+////        RoleType roleType = roleTypeRepository.findOne(RoleTypeDefine.CUSTOMER);
+//
+//        Customer customer = new Customer();
+//        BeanUtils.copyProperties(customerDomain,customer);
+////        customer.setPerson(person);
+////        customer.setRoleType(roleType);
+//        customer.setCreditCard(customerDomain.getCreditCard());
+//
+////        customer.setPartyId(person.getPartyId());
+////        customer.setRoleTypeId(RoleTypeDefine.CUSTOMER);
+////
+////        customerRepository.save(customer);
+//        customerDomain.setPartyId(person.getPartyId());
 
 
         return customerDomain;

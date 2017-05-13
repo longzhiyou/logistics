@@ -12,10 +12,6 @@ public class RoleType {
     private String description;
     private Set<PartyRole> partyRoles;
 
-    public RoleType(){
-
-    }
-
     @Id
 //    @GeneratedValue(strategy = GenerationType.AUTO)
     public int getRoleTypeId() {

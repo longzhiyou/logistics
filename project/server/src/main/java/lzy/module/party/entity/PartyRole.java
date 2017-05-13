@@ -12,6 +12,8 @@ import java.util.Date;
  * Date: 2017/5/12
  * Time: 10:29
  */
+
+@Inheritance(strategy = InheritanceType.JOINED)
 @Entity
 public class PartyRole implements Serializable{
 

@@ -1,8 +1,7 @@
 package lzy.module.party.entity;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -15,34 +14,39 @@ import java.util.Set;
  */
 
 
+@Inheritance(strategy = InheritanceType.JOINED)
+@Data
 @Entity
-//@Inheritance(strategy = InheritanceType.JOINED)
 public class Party {
 
-
+    @Id
+    @GenericGenerator(name = "idGenerator", strategy = "lzy.common.domain.IdGenerator")
+    @GeneratedValue(generator = "idGenerator")
     private Long partyId;
+
+    @OneToMany(mappedBy = "party",cascade={CascadeType.ALL})
     private Set<PartyRole> partyRoles;
 
     public Party() {
         partyRoles = new HashSet<>();
     }
 
-    @Id
+
 //    @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long getPartyId() {
-        return partyId;
-    }
+//    public Long getPartyId() {
+//        return partyId;
+//    }
+//
+//    public void setPartyId(Long partyId) {
+//        this.partyId = partyId;
+//    }
 
-    public void setPartyId(Long partyId) {
-        this.partyId = partyId;
-    }
 
-    @OneToMany(mappedBy = "party",cascade={CascadeType.ALL})
-    public Set<PartyRole> getPartyRoles() {
-        return partyRoles;
-    }
-
-    public void setPartyRoles(Set<PartyRole> partyRoles) {
-        this.partyRoles = partyRoles;
-    }
+//    public Set<PartyRole> getPartyRoles() {
+//        return partyRoles;
+//    }
+//
+//    public void setPartyRoles(Set<PartyRole> partyRoles) {
+//        this.partyRoles = partyRoles;
+//    }
 }
