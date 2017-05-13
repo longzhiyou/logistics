@@ -28,7 +28,7 @@ public class Party {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getPartyId() {
         return partyId;
     }
@@ -37,7 +37,7 @@ public class Party {
         this.partyId = partyId;
     }
 
-    @OneToMany(mappedBy = "party",cascade={CascadeType.ALL}, orphanRemoval = true)
+    @OneToMany(mappedBy = "party",cascade={CascadeType.ALL})
     public Set<PartyRole> getPartyRoles() {
         return partyRoles;
     }

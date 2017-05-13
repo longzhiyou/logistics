@@ -17,7 +17,7 @@ public class RoleType {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     public int getRoleTypeId() {
         return roleTypeId;
     }
