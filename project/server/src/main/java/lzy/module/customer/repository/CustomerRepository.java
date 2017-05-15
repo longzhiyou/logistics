@@ -6,9 +6,10 @@ package lzy.module.customer.repository;
  * Time: 14:42
  */
 
-import lzy.module.party.entity.Party;
+import lzy.module.customer.entity.Customer;
+import lzy.module.party.entity.PartyRolePK;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CustomerRepository extends JpaRepository<Party, Long>{
+public interface CustomerRepository extends JpaRepository<Customer, PartyRolePK>{
 
 }

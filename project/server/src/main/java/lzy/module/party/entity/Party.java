@@ -24,29 +24,5 @@ public class Party {
     @GeneratedValue(generator = "idGenerator")
     private Long partyId;
 
-    @OneToMany(mappedBy = "party",cascade={CascadeType.ALL})
-    private Set<PartyRole> partyRoles;
 
-    public Party() {
-        partyRoles = new HashSet<>();
-    }
-
-
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-//    public Long getPartyId() {
-//        return partyId;
-//    }
-//
-//    public void setPartyId(Long partyId) {
-//        this.partyId = partyId;
-//    }
-
-
-//    public Set<PartyRole> getPartyRoles() {
-//        return partyRoles;
-//    }
-//
-//    public void setPartyRoles(Set<PartyRole> partyRoles) {
-//        this.partyRoles = partyRoles;
-//    }
 }

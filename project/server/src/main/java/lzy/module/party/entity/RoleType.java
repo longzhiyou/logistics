@@ -1,42 +1,20 @@
 package lzy.module.party.entity;
-import javax.persistence.*;
-import java.util.Set;
+
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
 /**
  * User: longzhiyou
  * Date: 2017/5/12
  * Time: 10:28
  */
+
+@Data
 @Entity
 public class RoleType {
+    @Id
     private int roleTypeId;
     private String description;
-    private Set<PartyRole> partyRoles;
 
-    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-    public int getRoleTypeId() {
-        return roleTypeId;
-    }
-
-    public void setRoleTypeId(int roleTypeId) {
-        this.roleTypeId = roleTypeId;
-    }
-
-
-    @OneToMany(mappedBy = "roleType")
-    public Set<PartyRole> getPartyRoles() {
-        return partyRoles;
-    }
-
-    public void setPartyRoles(Set<PartyRole> partyRoles) {
-        this.partyRoles = partyRoles;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }

@@ -1,24 +1,24 @@
 
 package lzy.module.customer.entity;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lzy.module.party.entity.PartyRole;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
 
-@Data
+@Getter
+@Setter
 @Entity
 //@IdClass(CustomerPK.class)
-public class Customer {
+public class Customer extends PartyRole{
 
-    @Id
-    private Long partyId;
+//    @Id
+//    private Long partyId;
 //    @Id
 //    private Integer roleTypeId;
 
-//    private String creditCard;
+    private String creditCard;
 //
 //    public String getCreditCard() {
 //        return creditCard;

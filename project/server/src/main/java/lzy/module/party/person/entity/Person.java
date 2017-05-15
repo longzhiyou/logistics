@@ -1,9 +1,8 @@
 package lzy.module.party.person.entity;
 
-import lombok.Data;
 import lzy.module.party.entity.Party;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
 
 
 /**

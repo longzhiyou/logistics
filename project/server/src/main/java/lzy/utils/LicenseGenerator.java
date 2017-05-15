@@ -5,7 +5,10 @@ import com.xiaoleilu.hutool.crypto.asymmetric.KeyType;
 import com.xiaoleilu.hutool.crypto.asymmetric.RSA;
 
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Properties;
 import java.util.Scanner;
+import java.util.Set;
 
 /**
  * 序列号生成类
@@ -36,6 +39,31 @@ public class LicenseGenerator {
 //        增加一层
         return SecureUtil.sha1(serial);
 //        return serial;
+    }
+
+    private static String getMachineCode() {
+        Set<String> result = new HashSet<>();
+//        String mac = getMac();
+//        System.out.println("mac:" + getMac());
+//        result.add(mac);
+        Properties props = System.getProperties();
+        String javaVersion = props.getProperty("java.version");
+        result.add(javaVersion);
+        // System.out.println("Java的运行环境版本：    " + javaVersion);
+        String javaVMVersion = props.getProperty("java.vm.version");
+        result.add(javaVMVersion);
+        // System.out.println("Java的虚拟机实现版本：    " +
+        // props.getProperty("java.vm.version"));
+        String osVersion = props.getProperty("os.version");
+        result.add(osVersion);
+        // System.out.println("操作系统的版本：    " + props.getProperty("os.version"));
+
+//        String code = new Md5PasswordEncoder().encodePassword(
+//                result.toString(), SALT);
+//        return getSplitString(code, "-", 4);
+
+        return "";
+
     }
 
 //    public static String getLicense(){

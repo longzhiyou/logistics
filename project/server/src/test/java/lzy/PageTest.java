@@ -3,7 +3,6 @@ package lzy;
 
 import com.github.pagehelper.PageInfo;
 import lzy.module.customer.service.CustomerService;
-import lzy.module.party.person.service.PersonService;
 import lzy.sys.auth.domain.UserEntity;
 import lzy.sys.auth.repository.UserRepository;
 import org.junit.Test;
@@ -30,8 +29,6 @@ public class PageTest {
     @Autowired
     UserRepository userRepository;
 
-    @Autowired
-    PersonService personService;
 
 
 //    @Autowired

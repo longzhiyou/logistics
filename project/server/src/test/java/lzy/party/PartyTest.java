@@ -5,21 +5,17 @@ import com.xiaoleilu.hutool.log.Log;
 import com.xiaoleilu.hutool.log.LogFactory;
 import lzy.module.customer.domain.CustomerDomain;
 import lzy.module.customer.service.CustomerService;
-import lzy.module.party.entity.PartyRole;
-import lzy.module.party.entity.RoleType;
-import lzy.module.party.entity.RoleTypeRepository;
+import lzy.module.party.entity.*;
 import lzy.module.party.person.entity.Person;
 import lzy.module.party.person.repository.PersonRepository;
-import lzy.module.party.person.service.PersonService;
-import lzy.module.party.service.PartyService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.Set;
 
 import static org.junit.Assert.assertNotNull;
@@ -34,65 +30,46 @@ public class PartyTest {
 
 
     @Autowired
-    PartyService partyService;
-
-    @Autowired
-    PersonService personService;
-
-    @Autowired
-    RoleTypeRepository roleTypeRepository;
-
-
+    PartyRepository partyRepository;
 
     @Autowired
     PersonRepository personRepository;
 
     @Autowired
+    RoleTypeRepository roleTypeRepository;
+
+
+    @Autowired
     CustomerService customerService;
 
     @Test
-    public void initParty(){
-        partyService.create();
-    }
+    @Transactional
+    @Rollback(false)
+    public void createParty(){
 
-    @Test
+        // create new
+        Party partyA = new Party();
 
-    public void createPerson() throws Exception {
-
-        Person person = new Person();
-        person.setName("longzhiyou-new-1");
-        Person newPerson = personService.create(person);
-        assertNotNull(newPerson);
-        log.info(newPerson.toString());
+        Party save = partyRepository.save(partyA);
+        assertNotNull(save);
 
     }
 
     @Test
     @Transactional
-    public void searchRoleType() {
+    @Rollback(false)
+    public void createPerson() throws Exception {
 
-
-        RoleType one = roleTypeRepository.findOne(1);
-
-        Set<PartyRole> partyRoles = one.getPartyRoles();
-
-        Object[] objects = partyRoles.toArray();
-//        Person person = (Person) objects[1];
-
-        assertNotNull(one);
+        Person person = new Person();
+        person.setName("longzhiyou-new-1");
+        Person newPerson = personRepository.save(person);
+        assertNotNull(newPerson);
+        log.info(newPerson.toString());
 
     }
-
-
     @Test
-    public void deletePerson() throws Exception {
-
-        personRepository.delete(862493337779699712L);
-
-    }
-
-    @Test
-
+    @Transactional
+    @Rollback(false)
     public void createCustomer() throws Exception {
 
         /**
@@ -109,16 +86,23 @@ public class PartyTest {
             CustomerDomain customerDomain = new CustomerDomain();
             customerDomain.setName(String.format("lzy-%d",i+100));
             customerDomain.setCreditCard(String.format("CreditCard-%d",i));
-            customerDomain = customerService.create(customerDomain);
+            customerDomain = customerService.createByPerson(customerDomain);
             assertNotNull(customerDomain);
 
             log.info(customerDomain.toString());
 
         }
 
+    }
 
+
+    @Test
+    public void deletePerson() throws Exception {
+
+        personRepository.delete(862493337779699712L);
 
     }
+
 
 
 

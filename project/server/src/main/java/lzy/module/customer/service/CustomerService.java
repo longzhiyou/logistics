@@ -7,9 +7,11 @@ import lzy.module.customer.domain.CustomerDomain;
 import lzy.module.customer.entity.Customer;
 import lzy.module.customer.repository.CustomerRepository;
 import lzy.module.customer.repository.CustomerRepositoryMybatis;
+import lzy.module.party.entity.RoleType;
 import lzy.module.party.entity.RoleTypeDefine;
+import lzy.module.party.entity.RoleTypeRepository;
 import lzy.module.party.person.entity.Person;
-import lzy.module.party.person.service.PersonService;
+import lzy.module.party.person.repository.PersonRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -29,18 +31,20 @@ public class CustomerService {
     private static final Logger logger = LoggerFactory.getLogger(CustomerService.class);
 
     @Autowired
-    PersonService personService;
+    PersonRepository personRepository;
 
-//    @Autowired
-//    CustomerRepository customerRepository;
+    @Autowired
+    RoleTypeRepository roleTypeRepository;
 
 
+    @Autowired
+    CustomerRepository customerRepository;
 
     @Autowired
     CustomerRepositoryMybatis customerRepositoryMybatis;
 
     @Transactional
-    public CustomerDomain create(CustomerDomain customerDomain){
+    public CustomerDomain createByPerson(CustomerDomain customerDomain){
 
         /**
          *  增加一个人员客户的逻辑
@@ -50,24 +54,23 @@ public class CustomerService {
          * [2017-04-10 add by longzhiyou]
          */
 
+
+        Person person = new Person();
+        BeanUtils.copyProperties(customerDomain,person);
+        personRepository.save(person);
 //
-//        Person person = new Person();
-//        BeanUtils.copyProperties(customerDomain,person);
-//        person = personService.create(person);
+//        RoleType roleType = roleTypeRepository.findOne(RoleTypeDefine.CUSTOMER);
+
+        Customer customer = new Customer();
+        BeanUtils.copyProperties(customerDomain,customer);
+
+        customer.setCreditCard(customerDomain.getCreditCard());
+
+        customer.setPartyId(person.getPartyId());
+        customer.setRoleTypeId(RoleTypeDefine.CUSTOMER);
 //
-////        RoleType roleType = roleTypeRepository.findOne(RoleTypeDefine.CUSTOMER);
-//
-//        Customer customer = new Customer();
-//        BeanUtils.copyProperties(customerDomain,customer);
-////        customer.setPerson(person);
-////        customer.setRoleType(roleType);
-//        customer.setCreditCard(customerDomain.getCreditCard());
-//
-////        customer.setPartyId(person.getPartyId());
-////        customer.setRoleTypeId(RoleTypeDefine.CUSTOMER);
-////
-////        customerRepository.save(customer);
-//        customerDomain.setPartyId(person.getPartyId());
+        customerRepository.save(customer);
+        customerDomain.setPartyId(person.getPartyId());
 
 
         return customerDomain;

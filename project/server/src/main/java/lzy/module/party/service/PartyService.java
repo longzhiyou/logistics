@@ -28,18 +28,6 @@ public class PartyService {
         // create new
         Party partyA = new Party();
 
-        RoleType roleTypeA = new RoleType();
-//        roleTypeA.setDescription("RoleType A");
-        roleTypeA.setRoleTypeId(1);
-
-        PartyRole partyRole = new PartyRole();
-        partyRole.setParty(partyA);
-        partyRole.setRoleType(roleTypeA);
-        partyRole.setPartyRoleId(10);
-
-        partyA.getPartyRoles().add(partyRole);
-
-
         partyRepository.save(partyA);
 
     }
