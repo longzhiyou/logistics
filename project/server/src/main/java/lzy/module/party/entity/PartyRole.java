@@ -13,7 +13,7 @@ import java.util.Date;
  * Time: 10:29
  */
 
-@Inheritance(strategy = InheritanceType.JOINED)
+//@Inheritance(strategy = InheritanceType.JOINED)
 @Entity
 public class PartyRole implements Serializable{
 

@@ -2,6 +2,7 @@
 
 ### 选型
 - admin 模板
+    - [blur-admin](http://akveo.github.io/blur-admin/)
     - [wrapbootstrap](https://wrapbootstrap.com/themes)
     - [inspinia](https://wrapbootstrap.com/theme/inspinia-responsive-admin-theme-WB0R5L90S)
     - [unify](https://wrapbootstrap.com/theme/unify-responsive-website-template-WB0412697)
@@ -25,7 +26,4 @@
     - [Bootstrap Datagrid](https://github.com/pontikis/bs_grid/)
     - [datatables](https://github.com/l-lin/angular-datatables)
 
-### From akveo
 
-Enjoy!
-We're always happy to hear your feedback.

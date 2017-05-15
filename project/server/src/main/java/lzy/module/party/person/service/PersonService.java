@@ -1,5 +1,8 @@
 package lzy.module.party.person.service;
 
+import lzy.module.party.entity.Party;
+import lzy.module.party.entity.PartyRole;
+import lzy.module.party.entity.RoleType;
 import lzy.module.party.person.entity.Person;
 import lzy.module.party.person.repository.PersonRepository;
 import lzy.utils.IdUtils;
@@ -32,10 +35,17 @@ public class PersonService {
          * [2017-04-10 add by longzhiyou]
          */
 
-//        PartyBak party = new PartyBak();
-//        party.setPartyId(IdUtils.getId());
-//        PartyBak party1 = partyRepository.save(party);
-        person.setPartyId(IdUtils.getId());
+
+        RoleType roleTypeA = new RoleType();
+        roleTypeA.setRoleTypeId(1);
+
+        PartyRole partyRole = new PartyRole();
+        partyRole.setParty(person);
+        partyRole.setRoleType(roleTypeA);
+        partyRole.setPartyRoleId(10);
+
+        person.getPartyRoles().add(partyRole);
+
         return personRepository.save(person);
 
 

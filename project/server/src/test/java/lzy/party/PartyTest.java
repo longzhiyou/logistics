@@ -5,6 +5,9 @@ import com.xiaoleilu.hutool.log.Log;
 import com.xiaoleilu.hutool.log.LogFactory;
 import lzy.module.customer.domain.CustomerDomain;
 import lzy.module.customer.service.CustomerService;
+import lzy.module.party.entity.PartyRole;
+import lzy.module.party.entity.RoleType;
+import lzy.module.party.entity.RoleTypeRepository;
 import lzy.module.party.person.entity.Person;
 import lzy.module.party.person.repository.PersonRepository;
 import lzy.module.party.person.service.PersonService;
@@ -14,6 +17,10 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Set;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -32,8 +39,8 @@ public class PartyTest {
     @Autowired
     PersonService personService;
 
-//    @Autowired
-//    PartyRepository partyRepository;
+    @Autowired
+    RoleTypeRepository roleTypeRepository;
 
 
 
@@ -49,6 +56,7 @@ public class PartyTest {
     }
 
     @Test
+
     public void createPerson() throws Exception {
 
         Person person = new Person();
@@ -58,6 +66,23 @@ public class PartyTest {
         log.info(newPerson.toString());
 
     }
+
+    @Test
+    @Transactional
+    public void searchRoleType() {
+
+
+        RoleType one = roleTypeRepository.findOne(1);
+
+        Set<PartyRole> partyRoles = one.getPartyRoles();
+
+        Object[] objects = partyRoles.toArray();
+//        Person person = (Person) objects[1];
+
+        assertNotNull(one);
+
+    }
+
 
     @Test
     public void deletePerson() throws Exception {

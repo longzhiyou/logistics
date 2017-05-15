@@ -29,7 +29,7 @@ public class PartyService {
         Party partyA = new Party();
 
         RoleType roleTypeA = new RoleType();
-        roleTypeA.setDescription("RoleType A");
+//        roleTypeA.setDescription("RoleType A");
         roleTypeA.setRoleTypeId(1);
 
         PartyRole partyRole = new PartyRole();
