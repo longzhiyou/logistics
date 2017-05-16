@@ -60,7 +60,8 @@
 - 410 Gone -[GET]：用户请求的资源被永久删除，且不会再得到的。
 - 422 Unprocesable entity - [POST/PUT/PATCH] 当创建一个对象时，发生一个验证错误。
 - 500 INTERNAL SERVER ERROR - [*]：服务器发生错误，用户将无法判断发出的请求是否成功。
-
+### 参考API
+- [paypal](https://developer.paypal.com/docs/api/)
 
 ### 命名约定
 - 数据表名：单数，下划线分隔单词（例如 book_club）
@@ -74,20 +75,26 @@
 - 由仓库接口相互配置保存对应的实体类。
 
 ## 数据建模相关
-### 关系
+### 思想
+- 利用继承
+- 通用关系由程序进行控制
+### party
 - party
     - person(ON DELETE CASCADE)
     - organization(ON DELETE CASCADE)
 - role_type
     - party_role_type(ON DELETE CASCADE)
 
-- party_role(party+ party_role_type)
-
+- party_role
+    - 角色表,party与role_type的关系表包括(客户,职员,供应商等)(party+ party_role_type)
+### product
 
 ### 相关技术
 - [restangular](https://github.com/mgonto/restangular)
 - [spring boot 1.4默认使用 hibernate validator](http://www.cnblogs.com/softidea/p/6043879.html)
 - jpa
+    - [jpa概述](http://www.cnblogs.com/holbrook/archive/2012/12/30/2839842.html)
+    - [Hibernate之jpa实体映射的三种继承关系](http://www.cnblogs.com/shangxiaofei/p/5704321.html)
     - [JPA One-To-One Shared Primary Key Relationship Mapping Example with Spring Boot](https://hellokoding.com/jpa-one-to-one-shared-primary-key-relationship-mapping-example-with-spring-boot-hsql/)
     - [JpaTreeDao](http://members.chello.at/fritz.ritzberger/downloads/jpatreedao/JpaTreeDao.html)
     - [JPA-NestedSet](https://github.com/romanb/JPA-NestedSet)
