@@ -2,6 +2,10 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
 
     <persistence-unit name="persistenceUnit">
+        <class>lzy.module.product.entity.Product</class>
+        <class>lzy.module.product.entity.ProductCategory</class>
+        <class>lzy.module.product.entity.ProductCategoryClassificatio</class>
+        <class>lzy.module.product.entity.ProductFeature</class>
 
 
         <properties>
