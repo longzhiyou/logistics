@@ -6,6 +6,11 @@
         <class>lzy.module.product.entity.ProductCategory</class>
         <class>lzy.module.product.entity.ProductCategoryClassificatio</class>
         <class>lzy.module.product.entity.ProductFeature</class>
+        <class>lzy.module.product.entity.FinishedGood</class>
+        <class>lzy.module.product.entity.Good</class>
+        <class>lzy.module.product.entity.GoodIdentification</class>
+        <class>lzy.module.product.entity.Service</class>
+        <class>lzy.module.product.entity.ServiceTerritory</class>
 
 
         <properties>

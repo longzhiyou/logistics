@@ -74,6 +74,17 @@
 - 领域服务接收领域模型，并分解为实体类
 - 由仓库接口相互配置保存对应的实体类。
 
+## 数据仓库及相关
+- 星型结构
+    - 度量值(measure)
+    - 度量维度(dimension)
+- 雪花型结构
+- 参考
+    - **非常重要的概念** [商业智能实现的三个层次：数据报表、多维数据分析和数据挖掘](http://www.cnitpm.com/pm/8181.html)
+    - [数据仓库之星型结构和雪花型结构](http://blog.csdn.net/ecjtuxuan/article/details/6273983)
+    - [多维分析之概念准备篇](http://www.cnblogs.com/jinspire/archive/2011/11/23/2259718.html)
+    - [星型数据仓库olap工具kylin介绍](http://blog.csdn.net/ruiyiin/article/details/50688598)
+
 ## 数据建模相关
 ### 思想
 - 利用继承
