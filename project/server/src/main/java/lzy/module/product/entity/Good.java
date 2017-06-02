@@ -1,11 +1,9 @@
 package lzy.module.product.entity;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 
 /**
  * 有形的物品，叫货物，如特定类别的笔，家具，
@@ -15,14 +13,15 @@ import javax.persistence.Id;
  * Date: 2017/5/23
  * Time: 9:19
  */
-@Data
+@Getter
+@Setter
 @Entity
-public class Good {
-
-    @Id
-    private Integer productId;
-
-    //REFERENCES FINISHED_GOOD
-    private Integer partId;
+public class Good extends Product {
+//
+//    @Id
+//    private Integer productId;
+//
+//    //REFERENCES FINISHED_GOOD
+//    private Integer partId;
 
 }

@@ -13,11 +13,9 @@ import javax.persistence.Id;
  * Date: 2017/5/23
  * Time: 10:19
  */
-@Data
+
 @Entity
-public class Service {
-    @Id
-    private Integer productId;
+public class Service extends Product {
 
 
 }

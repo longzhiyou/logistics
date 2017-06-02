@@ -5,16 +5,16 @@ import lombok.Data;
 import javax.persistence.*;
 
 /**
- * 产品类别,类似gitlab上的标签
  * User: longzhiyou
- * Date: 2017/5/18
- * Time: 9:56
+ * Date: 2017/6/2
+ * Time: 15:22
  */
 @Data
 @Entity
-public class ProductCategory {
+public class ProductFeatureCategory {
     @Id
-    private Integer productCategoryId;
+    private Integer productFeatureCategoryId;
     private String description;
+
 
 }

@@ -11,6 +11,9 @@
         <class>lzy.module.product.entity.GoodIdentification</class>
         <class>lzy.module.product.entity.Service</class>
         <class>lzy.module.product.entity.ServiceTerritory</class>
+        <class>lzy.module.product.entity.ProductFeatureApplicability</class>
+        <class>lzy.module.product.entity.ProductFeatureCategory</class>
+        <class>lzy.module.product.entity.ProductFeatureInteraction</class>
 
 
         <properties>

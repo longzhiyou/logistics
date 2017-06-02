@@ -1,11 +1,9 @@
 package lzy.module.product.entity;
 
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
 
 /**
@@ -13,11 +11,14 @@ import java.sql.Date;
  * Date: 2017/5/18
  * Time: 9:56
  */
+@Inheritance(strategy = InheritanceType.JOINED)
 @Data
 @Entity
 public class Product {
     @Id
-    private Integer productId;
+    @GenericGenerator(name = "idGenerator", strategy = "lzy.common.domain.IdGenerator")
+    @GeneratedValue(generator = "idGenerator")
+    private Long productId;
     private Integer partId;
     private Integer manufacturerPartyId;
     private Integer uomId;

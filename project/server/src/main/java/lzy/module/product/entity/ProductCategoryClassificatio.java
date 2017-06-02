@@ -15,13 +15,16 @@ import java.sql.Date;
 @Entity
 @IdClass(ProductCategoryClassificatioPK.class)
 public class ProductCategoryClassificatio {
-    @Id
-    private Date fromDate;
+
     @Id
     private Integer productCategoryId;
     @Id
     private Integer productId;
+    @Id
+    private Date fromDate;
+
     private Date thruDate;
+    //首要标识，防止分析销售时被重复计算
     private String primaryFlag;
     private String comments;
 
