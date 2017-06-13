@@ -14,6 +14,11 @@
         <class>lzy.module.product.entity.ProductFeatureApplicability</class>
         <class>lzy.module.product.entity.ProductFeatureCategory</class>
         <class>lzy.module.product.entity.ProductFeatureInteraction</class>
+        <class>lzy.module.product.entity.InventoryItem</class>
+        <class>lzy.module.product.entity.InventoryItemStatusType</class>
+        <class>lzy.module.product.entity.InventoryItemVariance</class>
+        <class>lzy.module.product.entity.price.BasePrice</class>
+        <class>lzy.module.product.entity.price.PriceComponent</class>
 
 
         <properties>
