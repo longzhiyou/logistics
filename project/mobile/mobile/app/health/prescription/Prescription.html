@@ -1,0 +1,37 @@
+<ion-view view-title="健康处方">
+
+
+   <ion-content >
+      <div class="row">
+         <div class="col col-25"  ng-repeat="item in vm.menus[0]">
+            <div class="item_btn">
+               <a ui-sref="{{item.state}}({recordId:{{vm.recordId}}})" class="item-content">
+                  <div class="item-image">
+                     <img  ng-src="{{item.img}}">
+                     <h2>{{item.title}}</h2>
+                  </div>
+               </a>
+            </div>
+         </div>
+      </div>
+
+      <div class="row">
+         <div class="col col-25"  ng-repeat="item in vm.menus[1]">
+            <div class="item_btn">
+               <a ui-sref="{{item.state}}({recordId:{{vm.recordId}}})" class="item-content">
+                  <div class="item-image">
+                     <img  ng-src="{{item.img}}">
+                     <h2>{{item.title}}</h2>
+                  </div>
+               </a>
+            </div>
+         </div>
+      </div>
+
+
+   </ion-content>
+
+
+</ion-view>
+
+

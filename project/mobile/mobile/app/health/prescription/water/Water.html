@@ -1,0 +1,48 @@
+<ion-view  view-title="饮水管理">
+
+
+   <ion-content >
+
+      <div class="card" >
+         <div class="item item-divider item-calm">
+            饮水建议
+         </div>
+         <div class="item item-body " ng-repeat="item in vm.waters[0]" >
+            <p ng-bind-html="item.data1 | trustHtml"></p>
+
+         </div>
+
+      </div>
+
+      <div class="card">
+
+         <div class="item item-divider item-calm">
+            饮水管理
+         </div>
+
+         <div class="row item">
+            <div class="col col-50">
+               <h2>建议喝水时间段</h2>
+            </div>
+            <div class="col col-50">
+               <h2>饮水量</h2>
+            </div>
+         </div>
+
+         <div class="row item" ng-repeat="item in vm.waters[1]">
+            <div class="col col-50">
+              <p >{{item.data1}}</p>
+            </div>
+            <div class="col col-50">
+               <p>{{item.data2}}</p>
+            </div>
+         </div>
+
+      </div>
+
+   </ion-content>
+
+
+</ion-view>
+
+

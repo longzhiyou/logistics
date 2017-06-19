@@ -1,0 +1,40 @@
+<ion-view  view-title="睡眠管理">
+
+
+   <ion-content >
+
+      <div class="card" >
+         <div class="item item-divider item-calm">
+            睡眠障碍的定义
+         </div>
+
+         <div class="item item-body " ng-repeat="item in vm.sleeps[0]">
+            <p ng-bind-html="item.data1 | trustHtml"></p>
+
+         </div>
+
+      </div>
+
+      <div class="card" >
+
+         <div class="item item-divider item-calm">
+            失眠时的改善建议
+         </div>
+
+
+         <div class="item item-body " ng-repeat="item in vm.sleeps[1]">
+            <p ng-bind-html="item.data1 | trustHtml"></p>
+
+         </div>
+
+
+      </div>
+
+
+
+   </ion-content>
+
+
+</ion-view>
+
+

@@ -1,0 +1,54 @@
+<ion-view  view-title="体重管理">
+
+
+   <ion-content >
+
+      <div class="card" ng-repeat="item in vm.bmi">
+         <div class="item item-divider item-calm">
+         </div>
+
+         <label class="item item-input">
+            <span class="input-label">身高:</span>
+            <p>{{item.data1}}</p>
+            <span>cm</span>
+         </label>
+         <label class="item item-input">
+            <span class="input-label">体重:</span>
+            <p>{{item.data2}}</p>
+            <span>kg</span>
+
+         </label>
+         <label class="item item-input">
+            <span class="input-label">体脂率:</span>
+            <p>{{item.data3}}</p>
+         </label>
+         <label class="item item-input">
+            <span class="input-label">腰臀比:</span>
+            <p>{{item.data4}}</p>
+            <span>%</span>
+         </label>
+
+         <label class="item item-input">
+            <span class="input-label">BMI:</span>
+            <p>{{item.data10}}</p>
+         </label>
+
+         <label class="item item-input">
+            <span class="input-label">体重属于:</span>
+            <p>{{item.data5}}</p>
+
+         </label>
+
+         <div class="item item-body">
+            <h2>管理建议</h2>
+            <p ng-bind-html="item.data6 | trustHtml"></p>
+         </div>
+
+      </div>
+
+   </ion-content>
+
+
+</ion-view>
+
+

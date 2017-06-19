@@ -1,0 +1,27 @@
+<ion-view view-title="Health">
+
+   <ion-content >
+
+      <div class="button-bar">
+         <a ng-class="{'button':true,' button-calm':vm.currentSelect=='select1'}"
+            ng-click="vm.select1()">健康评估</a>
+
+         <a ng-class="{'button':true,' button-calm':vm.currentSelect=='select2'}"
+            ng-click="vm.select2()">健康档案</a>
+
+         <a ng-class="{'button':true,' button-calm':vm.currentSelect=='prescription'}"
+            ng-click="vm.prescription()">健康处方
+         </a>
+      </div>
+
+      <ion-nav-view></ion-nav-view>
+
+
+   </ion-content>
+
+
+</ion-view>
+
+
+
+

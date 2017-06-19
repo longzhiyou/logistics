@@ -1,0 +1,27 @@
+
+<ion-view view-title="体重管理">
+   <ion-content>
+      <div class="card" ng-repeat="item in vm.sports">
+         <div class="item item-divider item-calm">
+         </div>
+
+
+         <div class="item item-input">
+            <span class="input-label">运动方式</span>
+            <p>{{item.data1}}</p>
+         </div>
+         <div class="item item-input">
+            <span class="input-label">运动强度</span>
+            <p >{{item.data2}}</p>
+         </div>
+         <div class="item item-input">
+            <span class="input-label">运动频率</span>
+            <p >{{item.data3}}</p>
+         </div>
+         <div class="item item-body">
+            <h2>说明</h2>
+            <p ng-bind-html="item.data4 | trustHtml"></p>
+         </div>
+      </div>
+   </ion-content>
+</ion-view>

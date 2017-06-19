@@ -1,0 +1,38 @@
+<ion-view view-title="Users">
+   <ion-content class="padding">
+
+
+      <h2>Welcome to users</h2>
+
+      <a href="#/users/14">go to login</a>
+      <button class="button button-calm" ng-click="vm.getUserList()">
+         获取用户列表
+      </button>
+
+      <ion-list >
+
+         <ion-item class="item-avatar item-icon-right item-remove-animate"
+                   type="item-text-wrap"
+                   ng-repeat="user in vm.users"
+                   ui-sref="user-detail({userId:user.id})">
+
+            <img src="mobile/assets/img/avatar.png">
+            <!--<img ng-src="{{item.img}}">-->
+            <h2>{{user.name}}</h2>
+            <p>{{user.age}}</p>
+            <i class="icon ion-chevron-right icon-accessory"></i>
+
+            <ion-delete-button class="ion-minus-circled"
+                               ng-click="vm.users.splice($index, 1)">
+            </ion-delete-button>
+
+            <!--<ion-option-button class="button-assertive" ng-click="vm.remove(user)">-->
+            <!--Delete-->
+            <!--</ion-option-button>-->
+         </ion-item>
+         </ion-list>
+
+
+
+   </ion-content>
+</ion-view>

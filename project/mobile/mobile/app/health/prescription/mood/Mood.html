@@ -1,0 +1,31 @@
+<ion-view  view-title="体重管理">
+
+
+   <ion-content >
+
+      <div class="card" ng-repeat="item in vm.moods">
+         <div class="item item-divider item-calm">
+         </div>
+
+         <label class="item item-input">
+            <span class="input-label">状态</span>
+            <p>{{item.data1}}</p>
+         </label>
+         <label class="item item-input">
+            <span class="input-label">压力源</span>
+            <p>{{item.data2}}</p>
+
+         </label>
+         <div class="item item-body">
+            <h2>管理建议</h2>
+            <p ng-bind-html="item.data3 | trustHtml"></p>
+         </div>
+
+      </div>
+
+   </ion-content>
+
+
+</ion-view>
+
+

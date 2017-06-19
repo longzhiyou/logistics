@@ -1,0 +1,23 @@
+<ion-view view-title="Home">
+   <ion-content >
+
+       <ion-list>
+           <ion-item class="item-thumbnail-left item-icon-right"
+
+                     ng-repeat="item in vm.menus"
+
+                     ui-sref="{{item.state}}">
+               <img ng-src="{{item.img}}">
+               <h2>{{item.title}}</h2>
+               <p>{{item.content}}</p>
+               <i class="{{item.icon}}"></i>
+
+
+           </ion-item>
+       </ion-list>
+
+
+
+   </ion-content>
+
+</ion-view>

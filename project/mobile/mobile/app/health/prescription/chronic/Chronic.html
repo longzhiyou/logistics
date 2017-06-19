@@ -1,0 +1,39 @@
+<ion-view view-title="慢性疾病管理计划">
+
+
+   <ion-content >
+
+
+
+      <div class="card" ng-repeat="item in vm.chronics">
+         <div class="item item-divider item-calm">
+         </div>
+
+         <div class="item item-body">
+            <h2>目前疾病</h2>
+            <p>{{item.data1}}</p>
+
+         </div>
+         <div class="item item-body">
+            <h2>病因及发病机理</h2>
+            <p ng-bind-html="item.data2 | trustHtml"></p>
+         </div>
+         <div class="item item-body">
+
+            <h2>个性化管理方案</h2>
+            <p ng-bind-html="item.data3 | trustHtml"></p>
+
+         </div>
+
+
+
+
+      </div>
+
+
+   </ion-content>
+
+
+</ion-view>
+
+

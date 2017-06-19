@@ -1,0 +1,102 @@
+<ion-view  view-title="用药">
+
+   <ion-content >
+
+      <div class="button-bar">
+         <a ng-class="{'button':true,' button-calm':vm.currentSelect=='tips'}"
+            ng-click="vm.tips()">小贴士</a>
+
+         <a ng-class="{'button':true,' button-calm':vm.currentSelect=='management'}"
+            ng-click="vm.management()">管理</a>
+
+         <a ng-class="{'button':true,' button-calm':vm.currentSelect=='note'}"
+            ng-click="vm.note()">注意事项
+         </a>
+      </div>
+
+
+      <div class="item-remove-animate" ng-show="vm.currentSelect=='tips'">
+         <div class="card" ng-repeat="item in vm.drugs[0]">
+            <div class="item item-divider item-calm">
+            </div>
+
+            <label class="item item-input">
+               <span class="input-label">现患疾病:</span>
+               <p>{{item.data1}}</p>
+            </label>
+            <label class="item item-input">
+               <span class="input-label">目前用药:</span>
+               <p>{{item.data2}}</p>
+            </label>
+            <label class="item item-input">
+               <span class="input-label">频率:</span>
+               <p>{{item.data3}}</p>
+            </label>
+            <label class="item item-input">
+               <span class="input-label">剂量:</span>
+               <p>{{item.data4}}</p>
+            </label>
+
+            <label class="item item-input">
+               <span class="input-label">饭前饭后:</span>
+               <p>{{item.data5}}</p>
+            </label>
+
+
+         </div>
+      </div>
+
+      <div class="item-remove-animate" ng-show="vm.currentSelect=='management'">
+
+         <div class="card" ng-repeat="item in vm.drugs[1]">
+
+            <div class="item item-divider item-calm">
+            </div>
+
+            <div class="item item-body">
+               <h2>项目</h2>
+               <p ng-bind-html="item.data1 | trustHtml"></p>
+
+            </div>
+            <div class="item item-body">
+               <h2>结果</h2>
+               <p ng-bind-html="item.data2 | trustHtml"></p>
+            </div>
+
+         </div>
+
+      </div>
+
+      <div class="item-remove-animate" ng-show="vm.currentSelect=='note'">
+
+         <div class="card" ng-repeat="item in vm.drugs[2]">
+
+            <div class="item item-divider item-calm">
+            </div>
+
+            <div class="item item-body">
+               <h2>项目</h2>
+               <p ng-bind-html="item.data1 | trustHtml"></p>
+
+            </div>
+            <div class="item item-body">
+               <h2>结果</h2>
+               <p ng-bind-html="item.data2 | trustHtml"></p>
+
+            </div>
+
+         </div>
+
+
+
+      </div>
+
+      <!--<ion-nav-view ></ion-nav-view>-->
+
+
+   </ion-content>
+
+
+</ion-view>
+
+

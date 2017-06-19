@@ -1,0 +1,10 @@
+/*css 版本的小工具*/
+
+.item_btn {
+    border-width: 0px !important;
+}
+    .item_btn h2 {
+        margin: 5px 0 2px 0;
+        font-size: 16px;
+        font-weight: normal;
+    }

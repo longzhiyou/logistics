@@ -1,0 +1,80 @@
+<ion-view view-title="食养排餐change">
+
+
+   <ion-content >
+
+       <div class="card" ng-repeat="item in vm.foods">
+
+           <div class="item item-divider item-calm">
+               {{item.title }}
+           </div>
+
+           <div class="row item">
+               <div class="col col-50">
+                   <h2>生食(食养果菜汁)</h2>
+               </div>
+               <div class="col col-50">
+                   <h2>熟食(食养饮料)</h2>
+               </div>
+           </div>
+
+           <div class="row item" >
+               <div class="col col-50">
+                   <p > {{item.oddDayFood1Name}}</p>
+                   <p > {{item.oddDayFood1Value}}</p>
+               </div>
+               <div class="col col-50">
+                   <p> {{item.oddDayFood2Name}}</p>
+                   <p> {{item.oddDayFood2Value}}</p>
+               </div>
+           </div>
+           <div class="item item-text-wrap" ng-if="item.comment">
+               <p >{{item.comment}}</p>
+           </div>
+
+
+       </div>
+      <!--<div class="card">-->
+
+         <!--<div class="item item-divider item-calm">-->
+            <!--起床时-->
+        <!--</div>-->
+
+         <!--<div class="row item">-->
+            <!--<h2>生食(食养果菜汁)</h2>-->
+         <!--</div>-->
+
+         <!--<div class="row item" >-->
+            <!--<div class="col col-50">-->
+              <!--<p >弥猴桃</p>-->
+            <!--</div>-->
+            <!--<div class="col col-50">-->
+               <!--<p>(绿肉)2个</p>-->
+            <!--</div>-->
+         <!--</div>-->
+
+         <!--<div class="row item">-->
+            <!--<h2>熟食(食养饮料)</h2>-->
+         <!--</div>-->
+         <!--<div class="row item" >-->
+            <!--<div class="col col-50">-->
+               <!--<p>五行蔬菜汤</p>-->
+            <!--</div>-->
+            <!--<div class="col col-50">-->
+               <!--<p>300ml</p>-->
+            <!--</div>-->
+         <!--</div>-->
+
+
+         <!--<div class="item item-body">-->
+            <!--<p >beizhu</p>-->
+         <!--</div>-->
+      <!--</div>-->
+
+
+   </ion-content>
+
+
+</ion-view>
+
+
