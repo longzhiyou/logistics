@@ -33,6 +33,10 @@ public interface CustomerRepositoryMybatis {
 //       @Select("SELECT * FROM CITY WHERE state = #{state}")
 //    City findByState(@Param("state") String state);
 
+//    @SelectProvider(type = SqlProvider.class, method = "selectUser")
+//     @ResultMap("userMap")
+//     public User getUser(long userId);
+
 
 
 }
