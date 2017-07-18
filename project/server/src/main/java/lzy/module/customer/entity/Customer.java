@@ -19,6 +19,7 @@ public class Customer extends PartyRole{
 //    private Integer roleTypeId;
 
     private String creditCard;
+    private String birthday;
 //
 //    public String getCreditCard() {
 //        return creditCard;

@@ -1,6 +1,7 @@
 package lzy.demo;
 
 
+import com.querydsl.core.types.dsl.BooleanExpression;
 import com.xiaoleilu.hutool.log.Log;
 import com.xiaoleilu.hutool.log.LogFactory;
 import lzy.module.customer.domain.CustomerDomain;
@@ -16,6 +17,7 @@ import javax.transaction.Transactional;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static org.junit.Assert.assertNotNull;
@@ -125,6 +127,18 @@ public class BookTest {
 
     }
 
+
+    @Test
+    public void searchBook(){
+
+        QBook book = QBook.book;
+        BooleanExpression customerHasBirthday = book.name.eq("Book A");
+        Iterable all = bookRepository.findAll(customerHasBirthday);
+
+
+        log.info( all.toString());
+
+    }
 
 
 

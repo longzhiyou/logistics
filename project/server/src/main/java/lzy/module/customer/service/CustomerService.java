@@ -46,6 +46,7 @@ public class CustomerService {
     @Transactional
     public CustomerDomain createByPerson(CustomerDomain customerDomain){
 
+
         /**
          *  增加一个人员客户的逻辑
          *  1.Customer属于party_role,所以创建一个 party_role
@@ -82,10 +83,10 @@ public class CustomerService {
 //        int pageNum =pageable.getPageNumber();
 //        int pageSize = pageable.getPageSize();
         PageHelper.startPage(pageable.getPageNumber(), pageable.getPageSize());
-        String s = pageable.getSort().toString();
-
-        String removeAll = StrUtil.removeAll(s, ":");
-        PageHelper.orderBy(removeAll);
+//        String s = pageable.getSort().toString();
+//
+//        String removeAll = StrUtil.removeAll(s, ":");
+//        PageHelper.orderBy(removeAll);
 //        customerRepositoryMybatis.findAll();
 
 //        logger.info("获取所有Doctor信息，获得记录数：{}", page.size());

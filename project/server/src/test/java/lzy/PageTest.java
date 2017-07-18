@@ -2,9 +2,13 @@ package lzy;
 
 
 import com.github.pagehelper.PageInfo;
+import com.querydsl.core.types.dsl.BooleanExpression;
+import lzy.module.customer.entity.QCustomer;
+import lzy.module.customer.repository.CustomerRepository;
 import lzy.module.customer.service.CustomerService;
 import lzy.sys.auth.domain.UserEntity;
 import lzy.sys.auth.repository.UserRepository;
+import org.joda.time.LocalDate;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -15,6 +19,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringRunner;
+
 
 import static org.junit.Assert.assertNotNull;
 
@@ -39,6 +44,17 @@ public class PageTest {
     @Autowired
     CustomerService customerService;
 
+
+    @Test
+    public void searchCustomer() throws Exception {
+
+
+        //http://spring.io/blog/2011/04/26/advanced-spring-data-jpa-specifications-and-querydsl
+
+
+
+
+    }
 
     @Test
     public void findCustomer() throws Exception {
