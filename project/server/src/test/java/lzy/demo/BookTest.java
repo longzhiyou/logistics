@@ -1,28 +1,25 @@
 package lzy.demo;
 
 
-import com.querydsl.core.types.dsl.BooleanExpression;
 import com.xiaoleilu.hutool.log.Log;
 import com.xiaoleilu.hutool.log.LogFactory;
-import lzy.module.customer.domain.CustomerDomain;
-import lzy.module.party.person.entity.Person;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 import javax.transaction.Transactional;
-
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
-import static org.junit.Assert.assertNotNull;
-
-@RunWith(SpringRunner.class)
+//@RunWith(SpringRunner.class)
+@RunWith(SpringJUnit4ClassRunner.class)
+@WebAppConfiguration
 @SpringBootTest
 public class BookTest {
 
@@ -33,6 +30,10 @@ public class BookTest {
 
     @Autowired
     private BookRepository bookRepository;
+
+    @Autowired
+    private StudentRepository studentRepository;
+
 
     @Autowired
     private PublisherRepository publisherRepository;
@@ -131,12 +132,16 @@ public class BookTest {
     @Test
     public void searchBook(){
 
-        QBook book = QBook.book;
-        BooleanExpression customerHasBirthday = book.name.eq("Book A");
-        Iterable all = bookRepository.findAll(customerHasBirthday);
 
+        Iterable<Student> all = studentRepository.findAll(QStudent.student.name.eq("lzy"));
+        String s = all.toString();
 
-        log.info( all.toString());
+//        QBook book = QBook.book;
+//        BooleanExpression customerHasBirthday = book.name.eq("Book A");
+//        Iterable all = bookRepository.findAll(customerHasBirthday);
+
+//        bookRepository.findAll(book.name.eq("Book A")); // 所有用户名为 lufifcc 的用户
+//        log.info( all.toString());
 
     }
 
