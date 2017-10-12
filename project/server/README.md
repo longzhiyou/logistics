@@ -123,4 +123,4 @@
 1. [ ionic 通过PouchDB ＋ SQLite来实现app的本地存储（Local Storage）](http://www.cnblogs.com/ailen226/p/ionic.html)
 1. [LokiJS 是一个内存中的 JavaScript 数据库](http://www.oschina.net/p/lokijs)
 1. [cordova-plugin-local-notifications](https://github.com/katzer/cordova-plugin-local-notifications)
-
+1. [新年彩蛋：Spring Boot自定义Banner](http://blog.csdn.net/baochanghong/article/details/54286422)
